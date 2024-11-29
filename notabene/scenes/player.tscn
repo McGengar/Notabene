@@ -73,7 +73,7 @@ movement_speed = 100.0
 material = SubResource("ShaderMaterial_1nyfh")
 sprite_frames = SubResource("SpriteFrames_gkwyb")
 animation = &"walk"
-frame_progress = 0.287122
+frame_progress = 0.0360341
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
