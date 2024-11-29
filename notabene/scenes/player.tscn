@@ -1,10 +1,11 @@
-[gd_scene load_steps=24 format=3 uid="uid://btdsg11tmwjld"]
+[gd_scene load_steps=28 format=3 uid="uid://btdsg11tmwjld"]
 
 [ext_resource type="Script" path="res://scripts/player_movement.gd" id="1_qg4h0"]
 [ext_resource type="Shader" path="res://shaders/outline.gdshader" id="2_braja"]
 [ext_resource type="Texture2D" uid="uid://duvylkbvl0ifg" path="res://art/files/player_spirte_sheet.png" id="3_mxg37"]
 [ext_resource type="Texture2D" uid="uid://dq0mkuu6aa2yo" path="res://art/files/player_attack_right.png" id="3_ngh2n"]
 [ext_resource type="Texture2D" uid="uid://6c346jrxj10k" path="res://art/files/slash_sprite_sheet.png" id="5_iafcn"]
+[ext_resource type="Shader" path="res://shaders/camera.gdshader" id="5_p1si7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1nyfh"]
 shader = ExtResource("2_braja")
@@ -98,6 +99,28 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vk0ce"]
 size = Vector2(10, 24)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1ayg1"]
+shader = ExtResource("5_p1si7")
+shader_parameter/resolution = Vector2(480, 480)
+shader_parameter/scan_line_amount = 0.022
+shader_parameter/warp_amount = 5.0
+shader_parameter/noise_amount = 0.023
+shader_parameter/interference_amount = 0.112
+shader_parameter/grille_amount = 0.191
+shader_parameter/grille_size = 1.0
+shader_parameter/vignette_amount = 1.146
+shader_parameter/vignette_intensity = 0.456
+shader_parameter/aberation_amount = 0.815
+shader_parameter/roll_line_amount = 0.3
+shader_parameter/roll_speed = 3.8e-07
+shader_parameter/scan_line_strength = -1.0
+shader_parameter/pixel_strength = 0.0
+
+[sub_resource type="Gradient" id="Gradient_eih80"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_23vr0"]
+gradient = SubResource("Gradient_eih80")
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_87rd3"]
 atlas = ExtResource("5_iafcn")
 region = Rect2(0, 0, 64, 64)
@@ -159,6 +182,14 @@ shape = SubResource("RectangleShape2D_vk0ce")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D"]
+visible = false
+z_index = 5
+material = SubResource("ShaderMaterial_1ayg1")
+position = Vector2(-2.50001, -1)
+scale = Vector2(327, 194)
+texture = SubResource("GradientTexture1D_23vr0")
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 position = Vector2(13, -1)
