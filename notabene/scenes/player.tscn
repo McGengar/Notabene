@@ -19,9 +19,9 @@ size = Vector2(10, 24)
 
 [node name="RigidBody2D" type="RigidBody2D"]
 gravity_scale = 0.0
-linear_damp_mode = 1
-linear_damp = 41.661
+linear_damp = 21.257
 script = ExtResource("1_qg4h0")
+movement_speed = 500.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gkwyb")
