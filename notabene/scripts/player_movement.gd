@@ -19,5 +19,5 @@ func _physics_process(delta):
 		$AnimatedSprite2D.animation = "stand"
 	apply_central_force(character_direction*movement_speed*1000*delta)
 
-	if Input.is_action_just_pressed("dash"):
-		apply_central_force(character_direction*dash_strength*1000*delta)
+	#if Input.is_action_just_pressed("dash"):
+	#	apply_central_force(character_direction*dash_strength*1000*delta)
