@@ -1,22 +1,16 @@
-extends CharacterBody2D
+extends RigidBody2D
 
 var character_direction : Vector2
-var movement_speed = 100.0
+@export var movement_speed = 300.0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	var velocity = Vector2()
-	if Input.is_action_pressed('move_right'):
-		velocity.x += 1
-	if Input.is_action_pressed('move_left'):
-		velocity.x -= 1
-	if Input.is_action_pressed('move_down'):
-		velocity.y += 1
-	if Input.is_action_pressed('move_up'):
-		velocity.y -= 1
+	character_direction.x = Input.get_axis("move_left","move_right")
+	character_direction.y = Input.get_axis("move_up","move_down")
+	character_direction = character_direction.normalized()
 		
-		velocity = velocity*movement_speed
-		move_and_slide()
+	apply_central_force(character_direction*movement_speed*1000*delta)

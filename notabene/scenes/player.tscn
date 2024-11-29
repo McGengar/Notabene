@@ -17,7 +17,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vk0ce"]
 size = Vector2(10, 24)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="RigidBody2D" type="RigidBody2D"]
+gravity_scale = 0.0
+linear_damp_mode = 1
+linear_damp = 41.661
 script = ExtResource("1_qg4h0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
