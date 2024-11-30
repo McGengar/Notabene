@@ -1,7 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://btdsg11tmwjld"]
+[gd_scene load_steps=31 format=3 uid="uid://btdsg11tmwjld"]
 
 [ext_resource type="Script" path="res://scripts/player_movement.gd" id="1_qg4h0"]
 [ext_resource type="Shader" path="res://shaders/outline.gdshader" id="2_braja"]
+[ext_resource type="Texture2D" uid="uid://cbj2i0jwgfgcf" path="res://art/files/player_spirte1.png" id="2_cbj5j"]
 [ext_resource type="Texture2D" uid="uid://duvylkbvl0ifg" path="res://art/files/player_spirte_sheet.png" id="3_mxg37"]
 [ext_resource type="Texture2D" uid="uid://dq0mkuu6aa2yo" path="res://art/files/player_attack_right.png" id="3_ngh2n"]
 [ext_resource type="Texture2D" uid="uid://6c346jrxj10k" path="res://art/files/slash_sprite_sheet.png" id="5_iafcn"]
@@ -96,6 +97,9 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_aqy8v"]
+colors = PackedColorArray(0, 0, 0, 0.713726, 0, 0, 0, 0)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vk0ce"]
 size = Vector2(10, 24)
 
@@ -178,6 +182,16 @@ material = SubResource("ShaderMaterial_1nyfh")
 sprite_frames = SubResource("SpriteFrames_gkwyb")
 animation = &"stand"
 autoplay = "stand"
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="AnimatedSprite2D"]
+z_index = -1
+emitting = false
+amount = 50
+lifetime = 0.25
+texture = ExtResource("2_cbj5j")
+gravity = Vector2(0, 0)
+color = Color(0, 0, 0, 1)
+color_ramp = SubResource("Gradient_aqy8v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)

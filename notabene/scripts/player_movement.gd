@@ -6,6 +6,7 @@ var character_direction : Vector2
 @export var player_pos : Vector2
 var is_attacking = false
 var can_attack = true
+var can_dash = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -37,6 +38,15 @@ func _physics_process(delta):
 		is_attacking = false
 		await get_tree().create_timer(0.25).timeout
 		can_attack = true
+		
+	if Input.is_action_just_pressed("dash") and can_dash:
+		can_dash = false
+		$AnimatedSprite2D/CPUParticles2D.emitting = true
+		apply_central_force(character_direction*dash_strength*1000*delta)
+		await get_tree().create_timer(0.1).timeout
+		$AnimatedSprite2D/CPUParticles2D.emitting = false
+		await get_tree().create_timer(0.4).timeout
+		can_dash = true
 		
 		
 	if is_attacking ==false:
