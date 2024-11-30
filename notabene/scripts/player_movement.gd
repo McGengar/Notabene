@@ -67,7 +67,7 @@ func _physics_process(delta):
 		$AnimatedSprite2D/CPUParticles2D.emitting = false
 		await get_tree().create_timer(0.1,5).timeout
 		collision_mask = 1
-		collision_mask = 1
+		collision_layer = 1
 		await get_tree().create_timer(0.2,5).timeout
 		can_dash = true
 		
