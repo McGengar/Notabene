@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2q3yckua5vt1"]
+
+[ext_resource type="PackedScene" uid="uid://btdsg11tmwjld" path="res://scenes/player.tscn" id="1_tpb81"]
+[ext_resource type="PackedScene" uid="uid://c728exa2uv1op" path="res://scenes/bulky.tscn" id="2_pvtqg"]
+
+[node name="test" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_tpb81")]
+position = Vector2(194, 198)
+
+[node name="Bulky" parent="." instance=ExtResource("2_pvtqg")]
+position = Vector2(310, 193)
