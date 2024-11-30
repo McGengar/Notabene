@@ -70,7 +70,7 @@ shape = SubResource("CircleShape2D_8im5c")
 sprite_frames = SubResource("SpriteFrames_dt4d0")
 animation = &"walk"
 autoplay = "walk"
-frame_progress = 0.938422
+frame_progress = 0.456668
 
 [node name="Area2D" type="Area2D" parent="."]
 
