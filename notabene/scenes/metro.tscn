@@ -145,16 +145,16 @@ shader_parameter/roll_speed = 3.8e-07
 shader_parameter/scan_line_strength = -1.0
 shader_parameter/pixel_strength = 0.0
 
-[sub_resource type="Gradient" id="Gradient_eih80"]
+[sub_resource type="Gradient" id="Gradient_aw2pr"]
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_tf75q"]
-gradient = SubResource("Gradient_eih80")
+gradient = SubResource("Gradient_aw2pr")
 
-[sub_resource type="Gradient" id="Gradient_k64nx"]
+[sub_resource type="Gradient" id="Gradient_heguv"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_jxw3r"]
-gradient = SubResource("Gradient_k64nx")
+gradient = SubResource("Gradient_heguv")
 
 [node name="Metro" type="Node2D"]
 script = ExtResource("1_0ruda")

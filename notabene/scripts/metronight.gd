@@ -7,8 +7,6 @@ var shake_str = 0
 
 var time=0
 
-var alpha=1
-
 func camera_shake(str = r_str):
 	shake_str=str
 func random_offset():
@@ -23,11 +21,14 @@ func _physics_process(delta: float) -> void:
 	if shake_str>0:
 		shake_str = lerpf(shake_str,0,shake_fade*delta)
 		$Camera2D.offset=random_offset()
-	if time>8:
-		if 	$Camera2D.zoom.x<7:
+	if time>7:
+		if 	$Camera2D.zoom.x<8:
 			
-			$Camera2D.zoom.x*=1.0007
-			$Camera2D.zoom.y*=1.0007
+			$Camera2D.zoom.x*=1.001
+			$Camera2D.zoom.y*=1.001
+		else:
+			$Camera2D/Sprite2D2.modulate = Color(0,0,0,255)
+			$Camera2D/Sprite2D2.visible = true
 	
 
 func _on_timer_timeout():

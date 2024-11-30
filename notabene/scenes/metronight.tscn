@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b8wdmurlktgd6"]
+[gd_scene load_steps=26 format=3 uid="uid://dd1rk21tqxhri"]
 
 [ext_resource type="Texture2D" uid="uid://c6xfvhjmnq4oo" path="res://art/files/metro_night.png" id="1_5uvxc"]
 [ext_resource type="Script" path="res://scripts/metronight.gd" id="1_gwqsw"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cj36hgou6irmk" path="res://art/files/man_sprite_sheet.png" id="4_0ihk8"]
 [ext_resource type="Texture2D" uid="uid://c5fh64mmriyoq" path="res://art/files/woman_sprite_sheet.png" id="5_tiugn"]
 [ext_resource type="Texture2D" uid="uid://dsjvqrmxjxibc" path="res://art/files/trolley.png" id="6_ktoso"]
+[ext_resource type="Shader" path="res://shaders/camera.gdshader" id="8_xo7ce"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_01jje"]
 shader = ExtResource("2_rmve6")
@@ -97,6 +98,34 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6n5ff"]
+shader = ExtResource("8_xo7ce")
+shader_parameter/resolution = Vector2(480, 480)
+shader_parameter/scan_line_amount = 0.022
+shader_parameter/warp_amount = 0.0
+shader_parameter/noise_amount = 0.023
+shader_parameter/interference_amount = 0.112
+shader_parameter/grille_amount = 0.191
+shader_parameter/grille_size = 1.0
+shader_parameter/vignette_amount = 1.146
+shader_parameter/vignette_intensity = 0.456
+shader_parameter/aberation_amount = 0.815
+shader_parameter/roll_line_amount = 0.3
+shader_parameter/roll_speed = 3.8e-07
+shader_parameter/scan_line_strength = -1.0
+shader_parameter/pixel_strength = 0.0
+
+[sub_resource type="Gradient" id="Gradient_eih80"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_yu7ns"]
+gradient = SubResource("Gradient_eih80")
+
+[sub_resource type="Gradient" id="Gradient_k64nx"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bsl6a"]
+gradient = SubResource("Gradient_k64nx")
+
 [node name="metronight" type="Node2D"]
 script = ExtResource("1_gwqsw")
 
@@ -105,7 +134,7 @@ texture = ExtResource("1_5uvxc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_01jje")
-position = Vector2(-74, -1)
+position = Vector2(0, -1)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_qgc81")
 frame_progress = 0.440167
@@ -134,9 +163,24 @@ sprite_frames = SubResource("SpriteFrames_gayxn")
 autoplay = "default"
 frame_progress = 0.725274
 
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D"]
+z_index = 5
+material = SubResource("ShaderMaterial_6n5ff")
+position = Vector2(-2.50001, -1)
+scale = Vector2(327, 194)
+texture = SubResource("GradientTexture1D_yu7ns")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Camera2D"]
+visible = false
+z_index = 1
+position = Vector2(2.99999, -5)
+scale = Vector2(1.46484, 191)
+texture = SubResource("GradientTexture1D_bsl6a")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
