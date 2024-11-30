@@ -17,6 +17,7 @@ config/icon="res://art/icon.svg"
 [global_group]
 
 enemy=""
+player=""
 
 [input]
 

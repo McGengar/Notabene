@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://edg110s37vho"]
+[gd_scene load_steps=50 format=3 uid="uid://edg110s37vho"]
 
 [ext_resource type="Script" path="res://scripts/office.gd" id="1_7kbvs"]
 [ext_resource type="Texture2D" uid="uid://rgl42mi2tl7q" path="res://art/files/office.png" id="1_odvo3"]
@@ -46,6 +46,10 @@ animations = [{
 "name": &"default",
 "speed": 10.0
 }]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_07fia"]
+radius = 24.0
+height = 98.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1nyfh"]
 shader = ExtResource("4_nwllr")
@@ -236,6 +240,18 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_kmgw7"]
 radius = 29.0172
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d00dx"]
+distance = -161.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_42y3d"]
+distance = 42.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fnrn0"]
+distance = 132.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_snmbt"]
+distance = -574.0
+
 [node name="Office" type="Node2D"]
 script = ExtResource("1_7kbvs")
 
@@ -295,6 +311,12 @@ position = Vector2(516, 88)
 sprite_frames = SubResource("SpriteFrames_368fe")
 autoplay = "default"
 
+[node name="Area2D" type="Area2D" parent="Node2D/AnimatedSprite2D2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/AnimatedSprite2D2/Area2D"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_07fia")
+
 [node name="StaticBody2D6" parent="Node2D" instance=ExtResource("2_ksg8e")]
 position = Vector2(215, 118)
 
@@ -310,7 +332,7 @@ position = Vector2(291, 118)
 [node name="StaticBody2D11" parent="Node2D" instance=ExtResource("2_ksg8e")]
 position = Vector2(366, 118)
 
-[node name="Player" type="RigidBody2D" parent="Node2D"]
+[node name="Player" type="RigidBody2D" parent="Node2D" groups=["player"]]
 position = Vector2(141, 48)
 gravity_scale = 0.0
 lock_rotation = true
@@ -349,7 +371,6 @@ limit_right = 576
 limit_bottom = 162
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D/Player/Camera2D"]
-visible = false
 z_index = 5
 material = SubResource("ShaderMaterial_1ayg1")
 position = Vector2(-2.50001, 20.5)
@@ -357,6 +378,7 @@ scale = Vector2(327, 761)
 texture = SubResource("GradientTexture1D_23vr0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D/Player/Camera2D"]
+z_index = 1
 material = SubResource("ShaderMaterial_bj5fb")
 position = Vector2(125, -7)
 sprite_frames = SubResource("SpriteFrames_l3cgd")
@@ -378,9 +400,29 @@ monitoring = false
 position = Vector2(12, -11)
 shape = SubResource("CircleShape2D_kmgw7")
 
+[node name="Borders" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Borders"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_d00dx")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Borders/StaticBody2D"]
+scale = Vector2(-1, -1)
+shape = SubResource("WorldBoundaryShape2D_42y3d")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Borders/StaticBody2D"]
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_fnrn0")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Borders/StaticBody2D"]
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_snmbt")
+
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
+[connection signal="body_entered" from="Node2D/AnimatedSprite2D2/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="animation_finished" from="Node2D/Player/pivot/AnimatedSprite2D2" to="Node2D/Player" method="_on_animated_sprite_2d_2_animation_finished"]
 [connection signal="body_entered" from="Node2D/Player/pivot/AnimatedSprite2D2/Area2D" to="Node2D/Player" method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

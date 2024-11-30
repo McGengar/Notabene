@@ -7,6 +7,7 @@ var character_direction : Vector2
 var is_attacking = false
 @export var can_attack = true
 @export var can_dash = true
+@export var can_move = true
 
 var r_str = 10.0
 var shake_fade = 5.0
@@ -70,7 +71,7 @@ func _physics_process(delta):
 		can_dash = true
 		
 		
-	if is_attacking ==false:
+	if is_attacking ==false and can_move:
 		if character_direction.x!=0 or character_direction.y!=0:
 			$AnimatedSprite2D.animation = "walk"
 			$AnimatedSprite2D.play()
