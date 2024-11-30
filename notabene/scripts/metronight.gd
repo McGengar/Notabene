@@ -29,6 +29,8 @@ func _physics_process(delta: float) -> void:
 		else:
 			$Camera2D/Sprite2D2.modulate = Color(0,0,0,255)
 			$Camera2D/Sprite2D2.visible = true
+			await get_tree().create_timer(1).timeout
+			get_tree().change_scene_to_packed(load("res://scenes/marriagefight.tscn"))
 	
 
 func _on_timer_timeout():

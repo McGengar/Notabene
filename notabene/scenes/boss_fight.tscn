@@ -1,18 +1,18 @@
-[gd_scene load_steps=9 format=4 uid="uid://bjadsva6xrkri"]
+[gd_scene load_steps=9 format=4 uid="uid://cfhvlmxeabk8i"]
 
-[ext_resource type="PackedScene" uid="uid://btdsg11tmwjld" path="res://scenes/player.tscn" id="1_fr8ac"]
-[ext_resource type="PackedScene" uid="uid://hb31ymywrq5w" path="res://scenes/dog_monster.tscn" id="2_ws62m"]
-[ext_resource type="Shader" path="res://shaders/wobbly.gdshader" id="3_40uhi"]
-[ext_resource type="Texture2D" uid="uid://bkvsohd80v3j0" path="res://art/files/bg_tile.png" id="3_nlioj"]
+[ext_resource type="PackedScene" uid="uid://btdsg11tmwjld" path="res://scenes/player.tscn" id="1_qlfqr"]
+[ext_resource type="Shader" path="res://shaders/wobbly.gdshader" id="2_7whh6"]
+[ext_resource type="Texture2D" uid="uid://bkvsohd80v3j0" path="res://art/files/bg_tile.png" id="3_mxsoe"]
+[ext_resource type="PackedScene" path="res://scenes/boss_monster.tscn" id="4_iqva6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_svkpb"]
-shader = ExtResource("3_40uhi")
+shader = ExtResource("2_7whh6")
 shader_parameter/normal_offset = 1.5
 shader_parameter/time_influence = 3.0
 shader_parameter/y_div = 2.87
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v7nb0"]
-texture = ExtResource("3_nlioj")
+texture = ExtResource("3_mxsoe")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -33,20 +33,13 @@ texture = ExtResource("3_nlioj")
 [sub_resource type="TileSet" id="TileSet_3kum4"]
 sources/0 = SubResource("TileSetAtlasSource_v7nb0")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nj1rd"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1362h"]
 size = Vector2(20, 321)
 
-[node name="Dog_fight" type="Node2D"]
+[node name="Arena" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_fr8ac")]
+[node name="Player" parent="." instance=ExtResource("1_qlfqr")]
 position = Vector2(16, 5)
-
-[node name="DogMonster" parent="." instance=ExtResource("2_ws62m")]
-position = Vector2(145, 36)
-
-[node name="DogMonster2" parent="." instance=ExtResource("2_ws62m")]
-position = Vector2(145, -64)
-time = 2
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -2
@@ -59,20 +52,23 @@ position = Vector2(400, 0)
 scale = Vector2(1, 10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("RectangleShape2D_nj1rd")
+shape = SubResource("RectangleShape2D_1362h")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-800, 0)
-shape = SubResource("RectangleShape2D_nj1rd")
+shape = SubResource("RectangleShape2D_1362h")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-400, 40)
 rotation = 1.5708
 scale = Vector2(0.1, 10)
-shape = SubResource("RectangleShape2D_nj1rd")
+shape = SubResource("RectangleShape2D_1362h")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-400, -40)
 rotation = 1.5708
 scale = Vector2(0.1, 10)
-shape = SubResource("RectangleShape2D_nj1rd")
+shape = SubResource("RectangleShape2D_1362h")
+
+[node name="Boss Monster" parent="." instance=ExtResource("4_iqva6")]
+position = Vector2(3, -60)
