@@ -1,6 +1,6 @@
 extends Node2D
 
-var r_str = 10.0
+var r_str = 5.0
 var shake_fade = 5.0
 var rng = RandomNumberGenerator.new()
 var shake_str = 0
@@ -21,7 +21,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	
+	camera_shake(0.5)
 	$Camera2D.offset=random_offset()
 	if shake_str>0:
 		shake_str = lerpf(shake_str,0,shake_fade*delta)
@@ -34,7 +34,7 @@ func _physics_process(delta):
 	
 	if time>8:
 		if 	$Camera2D.zoom.x<7:
-			camera_shake(0.5)
+			
 			$Camera2D.zoom.x*=1.0007
 			$Camera2D.zoom.y*=1.0007
 		else:
