@@ -37,7 +37,6 @@ func _physics_process(delta):
 func attack():
 	is_attacking = true
 	$AnimatedSprite2D.stop()
-	await get_tree().create_timer(0.5).timeout
 	$AnimatedSprite2D.animation="attack"
 	await get_tree().create_timer(0.5).timeout
 	var rand_number = rng.randf_range(0,10)
