@@ -12,7 +12,8 @@ func _physics_process(delta):
 	if time>1:
 		$Node2D/Player/Camera2D.zoom.x= lerpf($Node2D/Player/Camera2D.zoom.x, 4, 2*delta)
 		$Node2D/Player/Camera2D.zoom.y= lerpf($Node2D/Player/Camera2D.zoom.y, 4, 2*delta)
-
+	if time>5 and $Node2D/Player/Camera2D/AnimatedSprite2D.frame == 1:
+		$Node2D/Player/Camera2D/AnimatedSprite2D.visible=false
 
 func _on_timer_timeout():
 	time+=1
