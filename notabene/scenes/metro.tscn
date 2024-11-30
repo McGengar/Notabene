@@ -150,11 +150,11 @@ shader_parameter/pixel_strength = 0.0
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_tf75q"]
 gradient = SubResource("Gradient_eih80")
 
-[sub_resource type="Gradient" id="Gradient_ufjpr"]
+[sub_resource type="Gradient" id="Gradient_k64nx"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_jxw3r"]
-gradient = SubResource("Gradient_ufjpr")
+gradient = SubResource("Gradient_k64nx")
 
 [node name="Metro" type="Node2D"]
 script = ExtResource("1_0ruda")
