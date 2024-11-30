@@ -23,6 +23,7 @@ func _physics_process(delta):
 			$Node2D/Player/Camera2D/Sprite2D2.visible=true
 			$Node2D/Player/Camera2D/Sprite2D2.modulate = Color(0,0,0,255)
 			await get_tree().create_timer(1).timeout
+			get_tree().change_scene_to_packed(load("res://scenes/dog_fight.tscn"))
 		
 		
 
