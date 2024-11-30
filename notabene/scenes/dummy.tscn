@@ -1,7 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://73wtue4uytfk"]
+[gd_scene load_steps=10 format=3 uid="uid://73wtue4uytfk"]
 
 [ext_resource type="Script" path="res://scripts/dummy.gd" id="1_2solu"]
+[ext_resource type="Shader" path="res://shaders/outline.gdshader" id="2_5eotc"]
 [ext_resource type="Texture2D" uid="uid://ckykmq3d5addl" path="res://art/files/dummy_sheet.png" id="2_5yy7e"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wnibt"]
+shader = ExtResource("2_5eotc")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q1drp"]
 atlas = ExtResource("2_5yy7e")
@@ -45,6 +54,7 @@ linear_damp = 10.0
 script = ExtResource("1_2solu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_wnibt")
 sprite_frames = SubResource("SpriteFrames_fks8f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
