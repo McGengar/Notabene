@@ -8,6 +8,7 @@ var is_attacking = false
 @export var can_attack = true
 @export var can_dash = true
 @export var can_move = true
+@export var hp = 100
 
 var r_str = 10.0
 var shake_fade = 5.0

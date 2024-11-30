@@ -70,7 +70,7 @@ shape = SubResource("CircleShape2D_8im5c")
 sprite_frames = SubResource("SpriteFrames_dt4d0")
 animation = &"walk"
 autoplay = "walk"
-frame_progress = 0.0363239
+frame_progress = 0.938422
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -87,11 +87,11 @@ script = ExtResource("3_5hfil")
 position = Vector2(32, 0)
 sprite_frames = SubResource("SpriteFrames_85s74")
 
-[node name="Area2D" type="Area2D" parent="pivot"]
+[node name="AreaAtak" type="Area2D" parent="pivot"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="pivot/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pivot/AreaAtak"]
 position = Vector2(32, 0)
 shape = SubResource("RectangleShape2D_vdwpx")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="pivot/Area2D" to="pivot" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="pivot/AreaAtak" to="." method="_on_area_atak_body_entered"]

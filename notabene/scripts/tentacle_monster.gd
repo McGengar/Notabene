@@ -7,22 +7,22 @@ var rng = RandomNumberGenerator.new()
 var direction : Vector2
 @onready var player = get_node("../Player")
 var is_attacking = false
+@onready var atak_area: Area2D = $pivot/AreaAtak
+@onready var pivot: Node2D = $pivot
+func _ready() -> void:
+	atak_area.monitoring = false
+	pivot.visible = false
+
 func _process(delta: float) -> void:
 	time+= delta
 func dealt_dmg(amount):
-	$AnimatedSprite2D.animation = "dmg"
 	hp-=amount
 	if hp<=0:
-		$CPUParticles2D.emitting= true
 		$AnimatedSprite2D.visible=false
 		collision_layer = 0
 		collision_mask = 0
 		await get_tree().create_timer(0.5).timeout
 		queue_free()
-	else:
-		$CPUParticles2D.emitting= true
-		await get_tree().create_timer(0.2).timeout
-		$AnimatedSprite2D.animation = "default"
 func _physics_process(delta):
 	#player = $"../../Player"
 	direction= Vector2.ZERO
@@ -38,9 +38,12 @@ func attack():
 	is_attacking = true
 	var rand_number = rng.randf_range(0,10)
 	if rand_number < 7:
-		
-		
-		
+		var czas1 = time
+		atak_area.monitoring = true
+		pivot.visible = true
+		await get_tree().create_timer(0.2,5).timeout
+		atak_area.monitoring = false
+		pivot.visible = false
 		pass #stab
 	else:
 		pass #special
@@ -50,3 +53,9 @@ func _on_area_2d_body_entered(body: RigidBody2D) -> void:
 		attack()
 		is_attacking = false
 		
+
+
+func _on_area_atak_body_entered(body: RigidBody2D) -> void:
+	if body.is_in_group("player"):
+		body.hp -= 10
+		player.camera_shake(9)
