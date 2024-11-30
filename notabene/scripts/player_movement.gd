@@ -28,6 +28,12 @@ func take_dmg(amount):
 	if hp-amount<=0:
 		hp=0
 		$AnimatedSprite2D.visible=false
+		can_move = false
+		can_dash = false
+		can_attack = false
+		$CPUParticles2D.emitting = true
+		await get_tree().create_timer(2).timeout
+		get_tree().reload_current_scene()
 	else:
 		hp-=amount
 	
@@ -43,7 +49,7 @@ func _ready():
 func _physics_process(delta):
 	$Camera2D/Sprite2D.material.set("shader_parameter/vignette_amount", 10-9*(hp/100))
 	if hp>0 and hp<100:
-		hp+=5*delta
+		hp+=2.5*delta
 	$Camera2D.offset=random_offset()
 	if shake_str>0:
 		shake_str = lerpf(shake_str,0,shake_fade*delta)
