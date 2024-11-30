@@ -38,6 +38,8 @@ func attack():
 	is_attacking = true
 	$AnimatedSprite2D.stop()
 	await get_tree().create_timer(0.5).timeout
+	$AnimatedSprite2D.animation="attack"
+	await get_tree().create_timer(0.5).timeout
 	var rand_number = rng.randf_range(0,10)
 	if rand_number < 11:
 		
@@ -49,15 +51,16 @@ func attack():
 		await get_tree().create_timer(0.1).timeout
 		atak_area.monitoring = false
 		pivot.visible = false
-		$AnimatedSprite2D.play()
+		
 		pass #stab
 	else:
 		pass #special
+	is_attacking = false
 
 func _on_area_2d_body_entered(body: RigidBody2D) -> void:
 	if body.is_in_group("player"):
 		attack()
-		is_attacking = false
+		
 		
 
 

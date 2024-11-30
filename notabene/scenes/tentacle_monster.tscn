@@ -1,12 +1,17 @@
-[gd_scene load_steps=17 format=3 uid="uid://cbmo1xrh435fx"]
+[gd_scene load_steps=19 format=3 uid="uid://by4k4n4ccw5v2"]
 
 [ext_resource type="Script" path="res://scripts/tentacle_monster.gd" id="1_4urep"]
 [ext_resource type="Texture2D" uid="uid://ct14y7m5uku2k" path="res://art/files/man_monster_sprite_sheet.png" id="2_l2kss"]
+[ext_resource type="Texture2D" uid="uid://b0bi7b0vylpgq" path="res://art/files/man_monster_sprite_atak.png" id="2_sttve"]
 [ext_resource type="Script" path="res://scripts/pivot.gd" id="3_5hfil"]
 [ext_resource type="Texture2D" uid="uid://wmvxxis612nd" path="res://art/files/stab_sheet.png" id="4_otkxd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8im5c"]
 radius = 17.0294
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nldfc"]
+atlas = ExtResource("2_sttve")
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_40qcc"]
 atlas = ExtResource("2_l2kss")
@@ -18,7 +23,22 @@ region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dt4d0"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nldfc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nldfc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nldfc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nldfc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nldfc")
+}],
 "loop": true,
 "name": &"attack",
 "speed": 5.0
@@ -100,9 +120,8 @@ shape = SubResource("CircleShape2D_8im5c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dt4d0")
-animation = &"walk"
+animation = &"attack"
 autoplay = "walk"
-frame_progress = 0.456668
 
 [node name="Area2D" type="Area2D" parent="."]
 
