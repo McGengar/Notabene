@@ -8,6 +8,17 @@ var is_attacking = false
 var can_attack = true
 var can_dash = true
 
+var r_str = 10.0
+var shake_fade = 5.0
+var rng = RandomNumberGenerator.new()
+var shake_str = 0
+
+func camera_shake(str = r_str):
+	shake_str=str
+func random_offset():
+		return Vector2(rng.randf_range(-shake_str,shake_str),rng.randf_range(-shake_str,shake_str))
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$pivot/AnimatedSprite2D2.visible = false
@@ -16,6 +27,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	$Camera2D.offset=random_offset()
+	if shake_str>0:
+		shake_str = lerpf(shake_str,0,shake_fade*delta)
+		$Camera2D.offset=random_offset()
 	player_pos = global_position
 	character_direction.x = Input.get_axis("move_left","move_right")
 	character_direction.y = Input.get_axis("move_up","move_down")
@@ -30,6 +45,7 @@ func _physics_process(delta):
 			$AnimatedSprite2D.flip_h = true
 		is_attacking = true
 		can_attack = false
+		camera_shake(5)
 		$pivot/AnimatedSprite2D2.visible= true
 		$AnimatedSprite2D.animation = "attack"
 		$pivot/AnimatedSprite2D2.play()

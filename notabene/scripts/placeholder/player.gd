@@ -938,5 +938,3 @@ func _on_area_2d_area_exited(area):
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("big_enemy") and is_dashing==false:
 		die()
-
-
