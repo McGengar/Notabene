@@ -39,21 +39,14 @@ func attack():
 	$AnimatedSprite2D.stop()
 	$AnimatedSprite2D.animation="attack"
 	await get_tree().create_timer(0.5).timeout
-	var rand_number = rng.randf_range(0,10)
-	if rand_number < 11:
-		
-		atak_area.monitoring = true
-		pivot.visible = true
-		
-		$pivot/AnimatedSprite2D.frame = 0
-		$pivot/AnimatedSprite2D.play()
-		await get_tree().create_timer(0.1).timeout
-		atak_area.monitoring = false
-		pivot.visible = false
-		
-		pass #stab
-	else:
-		pass #special
+	
+	atak_area.monitoring = true
+	pivot.visible = true
+	$pivot/AnimatedSprite2D.frame = 0
+	$pivot/AnimatedSprite2D.play()
+	await get_tree().create_timer(0.1).timeout
+	atak_area.monitoring = false
+	pivot.visible = false
 	is_attacking = false
 
 func _on_area_2d_body_entered(body: RigidBody2D) -> void:
