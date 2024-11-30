@@ -3,6 +3,7 @@ extends RigidBody2D
 var character_direction : Vector2
 @export var movement_speed = 10.0
 @export var dash_strength = 3000.0
+@export var player_pos : Vector2
 var is_attacking = false
 var can_attack = true
 
@@ -14,14 +15,15 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	player_pos = global_position
 	character_direction.x = Input.get_axis("move_left","move_right")
 	character_direction.y = Input.get_axis("move_up","move_down")
 	character_direction = character_direction.normalized()
 	
-	if character_direction.x>0:
-		$pivot.scale.x=1
 	if character_direction.x<0:
 		$pivot.scale.x=-1
+	else:
+		$pivot.scale.x=1
 	if Input.is_action_just_pressed("attack") and can_attack:
 		if character_direction.x<0:
 			$AnimatedSprite2D.flip_h = true

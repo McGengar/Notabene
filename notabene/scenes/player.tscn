@@ -103,7 +103,7 @@ size = Vector2(10, 24)
 shader = ExtResource("5_p1si7")
 shader_parameter/resolution = Vector2(480, 480)
 shader_parameter/scan_line_amount = 0.022
-shader_parameter/warp_amount = 5.0
+shader_parameter/warp_amount = 0.0
 shader_parameter/noise_amount = 0.023
 shader_parameter/interference_amount = 0.112
 shader_parameter/grille_amount = 0.191
@@ -116,10 +116,10 @@ shader_parameter/roll_speed = 3.8e-07
 shader_parameter/scan_line_strength = -1.0
 shader_parameter/pixel_strength = 0.0
 
-[sub_resource type="Gradient" id="Gradient_eih80"]
+[sub_resource type="Gradient" id="Gradient_lpaw8"]
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_23vr0"]
-gradient = SubResource("Gradient_eih80")
+gradient = SubResource("Gradient_lpaw8")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_87rd3"]
 atlas = ExtResource("5_iafcn")
@@ -187,7 +187,6 @@ shape = SubResource("RectangleShape2D_vk0ce")
 zoom = Vector2(4, 4)
 
 [node name="Sprite2D" type="Sprite2D" parent="Camera2D"]
-visible = false
 z_index = 5
 material = SubResource("ShaderMaterial_1ayg1")
 position = Vector2(-2.50001, -1)

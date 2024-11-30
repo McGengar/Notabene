@@ -1,0 +1,260 @@
+[gd_scene load_steps=27 format=3 uid="uid://ccdbeg3ruoj8m"]
+
+[ext_resource type="Texture2D" uid="uid://ba5jxgvek0mku" path="res://art/files/metro.png" id="1_gtjdi"]
+[ext_resource type="Shader" path="res://shaders/outline.gdshader" id="2_w5pn7"]
+[ext_resource type="Texture2D" uid="uid://dq0mkuu6aa2yo" path="res://art/files/player_attack_right.png" id="3_15sne"]
+[ext_resource type="Texture2D" uid="uid://n3l7gea63fw4" path="res://art/files/boss_sprite_sheet.png" id="3_j7fys"]
+[ext_resource type="Texture2D" uid="uid://duvylkbvl0ifg" path="res://art/files/player_spirte_sheet.png" id="4_5efkg"]
+[ext_resource type="Shader" path="res://shaders/camera.gdshader" id="5_7a1ti"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2i3sg"]
+shader = ExtResource("2_w5pn7")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjduf"]
+atlas = ExtResource("3_15sne")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2y54g"]
+atlas = ExtResource("3_15sne")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twnwk"]
+atlas = ExtResource("3_15sne")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufy42"]
+atlas = ExtResource("3_15sne")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fabqk"]
+atlas = ExtResource("4_5efkg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7fk7x"]
+atlas = ExtResource("4_5efkg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dw486"]
+atlas = ExtResource("4_5efkg")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uq3v8"]
+atlas = ExtResource("4_5efkg")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucvml"]
+atlas = ExtResource("4_5efkg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rxi6g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjduf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2y54g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twnwk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufy42")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fabqk")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7fk7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dw486")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uq3v8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucvml")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_chevs"]
+shader = ExtResource("2_w5pn7")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvu2d"]
+atlas = ExtResource("3_j7fys")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uc4mo"]
+atlas = ExtResource("3_j7fys")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p33n1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvu2d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uc4mo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jcak0"]
+shader = ExtResource("2_w5pn7")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ndle3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvu2d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uc4mo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iefsa"]
+shader = ExtResource("5_7a1ti")
+shader_parameter/resolution = Vector2(480, 480)
+shader_parameter/scan_line_amount = 0.022
+shader_parameter/warp_amount = 0.0
+shader_parameter/noise_amount = 0.023
+shader_parameter/interference_amount = 0.112
+shader_parameter/grille_amount = 0.191
+shader_parameter/grille_size = 1.0
+shader_parameter/vignette_amount = 1.146
+shader_parameter/vignette_intensity = 0.456
+shader_parameter/aberation_amount = 0.815
+shader_parameter/roll_line_amount = 0.3
+shader_parameter/roll_speed = 3.8e-07
+shader_parameter/scan_line_strength = -1.0
+shader_parameter/pixel_strength = 0.0
+
+[sub_resource type="Gradient" id="Gradient_eih80"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tf75q"]
+gradient = SubResource("Gradient_eih80")
+
+[node name="Metro" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(144, 81)
+texture = ExtResource("1_gtjdi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_2i3sg")
+position = Vector2(142, 99)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_rxi6g")
+animation = &"stand"
+autoplay = "stand"
+
+[node name="othe ppl" type="Node2D" parent="."]
+position = Vector2(144, 81)
+
+[node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="othe ppl"]
+material = SubResource("ShaderMaterial_chevs")
+position = Vector2(23, 32)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_p33n1")
+
+[node name="AnimatedSprite2D12" type="AnimatedSprite2D" parent="othe ppl"]
+material = SubResource("ShaderMaterial_chevs")
+position = Vector2(143, 39)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_p33n1")
+
+[node name="AnimatedSprite2D11" type="AnimatedSprite2D" parent="othe ppl"]
+material = SubResource("ShaderMaterial_chevs")
+position = Vector2(-98, 40)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_p33n1")
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="othe ppl"]
+material = SubResource("ShaderMaterial_jcak0")
+position = Vector2(-143, 36)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_ndle3")
+
+[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="othe ppl"]
+material = SubResource("ShaderMaterial_chevs")
+position = Vector2(71, 8)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_p33n1")
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="othe ppl"]
+z_index = 1
+material = SubResource("ShaderMaterial_chevs")
+position = Vector2(-28, 39)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_p33n1")
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="othe ppl"]
+material = SubResource("ShaderMaterial_chevs")
+position = Vector2(54.455, 38)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_p33n1")
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="othe ppl"]
+material = SubResource("ShaderMaterial_chevs")
+position = Vector2(104, 25)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_p33n1")
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="othe ppl"]
+material = SubResource("ShaderMaterial_chevs")
+position = Vector2(76, 44)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_p33n1")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="othe ppl"]
+material = SubResource("ShaderMaterial_jcak0")
+position = Vector2(-54, 22)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_ndle3")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(144, 81)
+zoom = Vector2(4, 4)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D"]
+z_index = 5
+material = SubResource("ShaderMaterial_iefsa")
+position = Vector2(-2.50001, -1)
+scale = Vector2(327, 194)
+texture = SubResource("GradientTexture1D_tf75q")
