@@ -1,0 +1,97 @@
+[gd_scene load_steps=12 format=3 uid="uid://by4k4n4ccw5v2"]
+
+[ext_resource type="Script" path="res://scripts/tentacle_monster.gd" id="1_4urep"]
+[ext_resource type="Texture2D" uid="uid://ct14y7m5uku2k" path="res://art/files/man_monster_sprite_sheet.png" id="2_l2kss"]
+[ext_resource type="Script" path="res://scripts/pivot.gd" id="3_5hfil"]
+[ext_resource type="Texture2D" uid="uid://be513ms3ghrtr" path="res://art/files/stab.png" id="4_sq38i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8im5c"]
+radius = 17.0294
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40qcc"]
+atlas = ExtResource("2_l2kss")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lxwu"]
+atlas = ExtResource("2_l2kss")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dt4d0"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"special",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40qcc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lxwu")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8y0xq"]
+radius = 38.3275
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_85s74"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_sq38i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vdwpx"]
+size = Vector2(64, 20)
+
+[node name="Tentacle Monster" type="RigidBody2D" groups=["enemy"]]
+gravity_scale = 0.0
+lock_rotation = true
+linear_damp = 10.0
+script = ExtResource("1_4urep")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["enemy"]]
+shape = SubResource("CircleShape2D_8im5c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dt4d0")
+animation = &"walk"
+autoplay = "walk"
+frame_progress = 0.0363239
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_8y0xq")
+debug_color = Color(0.937413, 0.19501, 0.404828, 0.42)
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="pivot" type="Node2D" parent="."]
+script = ExtResource("3_5hfil")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="pivot"]
+position = Vector2(32, 0)
+sprite_frames = SubResource("SpriteFrames_85s74")
+
+[node name="Area2D" type="Area2D" parent="pivot"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pivot/Area2D"]
+position = Vector2(32, 0)
+shape = SubResource("RectangleShape2D_vdwpx")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="pivot/Area2D" to="pivot" method="_on_area_2d_body_entered"]

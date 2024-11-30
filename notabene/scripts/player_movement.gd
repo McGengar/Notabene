@@ -7,7 +7,6 @@ var character_direction : Vector2
 var is_attacking = false
 @export var can_attack = true
 @export var can_dash = true
-
 var r_str = 10.0
 var shake_fade = 5.0
 var rng = RandomNumberGenerator.new()

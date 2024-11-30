@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dsxwsrtwkj2u7"]
+[gd_scene load_steps=10 format=3 uid="uid://dsxwsrtwkj2u7"]
 
 [ext_resource type="PackedScene" uid="uid://btdsg11tmwjld" path="res://scenes/player.tscn" id="1_0cwaa"]
 [ext_resource type="Shader" path="res://shaders/outline.gdshader" id="1_fwft6"]
 [ext_resource type="Texture2D" uid="uid://n3l7gea63fw4" path="res://art/files/boss_sprite_sheet.png" id="2_0teaa"]
 [ext_resource type="PackedScene" uid="uid://73wtue4uytfk" path="res://scenes/dummy.tscn" id="4_bddrb"]
+[ext_resource type="PackedScene" uid="uid://by4k4n4ccw5v2" path="res://scenes/tentacle_monster.tscn" id="5_sttgp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ekyas"]
 shader = ExtResource("1_fwft6")
@@ -36,6 +37,7 @@ animations = [{
 }]
 
 [node name="test" type="Node2D"]
+y_sort_enabled = true
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -50,4 +52,8 @@ position = Vector2(0, 1)
 movement_speed = 120.0
 
 [node name="Dummy" parent="." instance=ExtResource("4_bddrb")]
+visible = false
 position = Vector2(56, 0)
+
+[node name="Tentacle Monster" parent="." instance=ExtResource("5_sttgp")]
+position = Vector2(91, 0)
