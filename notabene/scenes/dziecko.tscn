@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://4s1ccml1w24n"]
+
+[ext_resource type="Script" path="res://scripts/dziecko.gd" id="1_qayje"]
+[ext_resource type="PackedScene" uid="uid://i0rqglr4u8cp" path="res://scenes/bullet.tscn" id="2_qqssr"]
+[ext_resource type="Texture2D" uid="uid://knws10ori4ek" path="res://art/files/baby_sprite.png" id="2_yfyph"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2enx6"]
+atlas = ExtResource("2_yfyph")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ws3gy"]
+atlas = ExtResource("2_yfyph")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfs3v"]
+atlas = ExtResource("2_yfyph")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lt3xj"]
+atlas = ExtResource("2_yfyph")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ct6pi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2enx6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ws3gy")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sfs3v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lt3xj")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oar3c"]
+radius = 18.1108
+
+[node name="DZIECKO" type="RigidBody2D"]
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_qayje")
+bullet = ExtResource("2_qqssr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ct6pi")
+animation = &"walk"
+autoplay = "walk"
+frame_progress = 0.323115
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_oar3c")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
