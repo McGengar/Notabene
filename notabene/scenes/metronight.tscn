@@ -1,0 +1,142 @@
+[gd_scene load_steps=20 format=3 uid="uid://b8wdmurlktgd6"]
+
+[ext_resource type="Texture2D" uid="uid://c6xfvhjmnq4oo" path="res://art/files/metro_night.png" id="1_5uvxc"]
+[ext_resource type="Script" path="res://scripts/metronight.gd" id="1_gwqsw"]
+[ext_resource type="Shader" path="res://shaders/outline.gdshader" id="2_rmve6"]
+[ext_resource type="Texture2D" uid="uid://duvylkbvl0ifg" path="res://art/files/player_spirte_sheet.png" id="3_7x1d0"]
+[ext_resource type="Texture2D" uid="uid://cj36hgou6irmk" path="res://art/files/man_sprite_sheet.png" id="4_0ihk8"]
+[ext_resource type="Texture2D" uid="uid://c5fh64mmriyoq" path="res://art/files/woman_sprite_sheet.png" id="5_tiugn"]
+[ext_resource type="Texture2D" uid="uid://dsjvqrmxjxibc" path="res://art/files/trolley.png" id="6_ktoso"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_01jje"]
+shader = ExtResource("2_rmve6")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0w7v"]
+atlas = ExtResource("3_7x1d0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qgc81"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0w7v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1lak"]
+atlas = ExtResource("4_0ihk8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvny1"]
+atlas = ExtResource("4_0ihk8")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ysr4m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1lak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvny1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrr1j"]
+atlas = ExtResource("5_tiugn")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aoyck"]
+atlas = ExtResource("5_tiugn")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bfkxb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrr1j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aoyck")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_donnu"]
+atlas = ExtResource("6_ktoso")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxd3i"]
+atlas = ExtResource("6_ktoso")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gayxn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_donnu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxd3i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="metronight" type="Node2D"]
+script = ExtResource("1_gwqsw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5uvxc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_01jje")
+position = Vector2(-74, -1)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_qgc81")
+frame_progress = 0.440167
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_01jje")
+position = Vector2(117, 32)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_ysr4m")
+autoplay = "default"
+frame_progress = 0.792731
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_01jje")
+position = Vector2(76, 30)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_bfkxb")
+autoplay = "default"
+frame_progress = 0.21205
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_01jje")
+position = Vector2(39, 27)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_gayxn")
+autoplay = "default"
+frame_progress = 0.725274
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
