@@ -101,7 +101,7 @@ animations = [{
 colors = PackedColorArray(0, 0, 0, 0.713726, 0, 0, 0, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vk0ce"]
-size = Vector2(10, 24)
+size = Vector2(10, 25)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1ayg1"]
 shader = ExtResource("5_p1si7")
@@ -195,7 +195,7 @@ color = Color(0, 0, 0, 1)
 color_ramp = SubResource("Gradient_aqy8v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
+position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_vk0ce")
 
 [node name="Camera2D" type="Camera2D" parent="."]

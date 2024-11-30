@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://dv8hexywjobbt"]
+
+[ext_resource type="Texture2D" uid="uid://78ckeqn2ysna" path="res://art/files/desk.png" id="1_jqgtk"]
+[ext_resource type="Texture2D" uid="uid://ckykmq3d5addl" path="res://art/files/dummy_sheet.png" id="2_s3d0x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sqb2p"]
+size = Vector2(91, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1drp"]
+atlas = ExtResource("2_s3d0x")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpxdy"]
+atlas = ExtResource("2_s3d0x")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fks8f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1drp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lpxdy")
+}],
+"loop": true,
+"name": &"dmg",
+"speed": 5.0
+}]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, -26)
+texture = ExtResource("1_jqgtk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-19, -3)
+shape = SubResource("RectangleShape2D_sqb2p")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(1, -27)
+sprite_frames = SubResource("SpriteFrames_fks8f")
