@@ -8,17 +8,29 @@ var is_attacking = false
 @export var can_attack = true
 @export var can_dash = true
 @export var can_move = true
-@export var hp = 100
+@export var hp = 100.0
 
 var r_str = 10.0
 var shake_fade = 5.0
 var rng = RandomNumberGenerator.new()
 var shake_str = 0
 
+var last_dir= 1
+
 func camera_shake(str = r_str):
 	shake_str=str
 func random_offset():
 		return Vector2(rng.randf_range(-shake_str,shake_str),rng.randf_range(-shake_str,shake_str))
+
+
+func take_dmg(amount):
+	camera_shake(10)
+	if hp-amount<=0:
+		hp=0
+		$AnimatedSprite2D.visible=false
+	else:
+		hp-=amount
+	
 
 
 # Called when the node enters the scene tree for the first time.
@@ -29,6 +41,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	$Camera2D/Sprite2D.material.set("shader_parameter/vignette_amount", 10-9*(hp/100))
+	if hp>0 and hp<100:
+		hp+=5*delta
 	$Camera2D.offset=random_offset()
 	if shake_str>0:
 		shake_str = lerpf(shake_str,0,shake_fade*delta)
@@ -38,8 +53,13 @@ func _physics_process(delta):
 	character_direction.y = Input.get_axis("move_up","move_down")
 	character_direction = character_direction.normalized()
 	
+	if character_direction.x>0:
+		last_dir=1
+	if character_direction.x<0:
+		last_dir=-1
+	
 	if Input.is_action_just_pressed("attack") and can_attack:
-		if character_direction.x<0:
+		if last_dir==-1:
 			$pivot.scale.x=-1
 			$AnimatedSprite2D.flip_h = true
 		is_attacking = true
@@ -57,7 +77,7 @@ func _physics_process(delta):
 		$pivot.scale.x=1
 		can_attack = true
 		
-	if Input.is_action_just_pressed("dash") and can_dash:
+	if Input.is_action_just_pressed("dash") and can_dash and character_direction!=Vector2(0,0):
 		can_dash = false
 		collision_mask = 0
 		collision_layer = 0

@@ -53,3 +53,8 @@ func _on_timer_timeout():
 		time=0;
 		dashes = 3
 	
+
+
+func _on_area_2d_body_entered(body):
+	if body.is_in_group("player"):
+		body.take_dmg(25)

@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-@export var movement_speed = 25
+@export var movement_speed = 15
 @export var hp = 100
 var direction : Vector2
 var is_attacking = false
@@ -32,8 +32,17 @@ func attack():
 	$AnimatedSprite2D.animation="attack"
 	$AnimatedSprite2D.play()
 	await get_tree().create_timer(1).timeout
-	#particle i damage z nich lol
+	$shockwave.monitoring = true
+	$shockwave/CPUParticles2D.emitting =true
+	$shockwave/CPUParticles2D2.emitting =true
+	await get_tree().create_timer(0.1).timeout
+	$shockwave.monitoring = false
 	is_attacking = false
 func _on_area_2d_body_entered(body: RigidBody2D) -> void:
 	if body.is_in_group("player"):
 		attack()
+
+
+func _on_shockwave_body_entered(body):
+	if body.is_in_group("player"):
+		body.take_dmg(50)

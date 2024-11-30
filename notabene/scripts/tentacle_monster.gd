@@ -58,5 +58,5 @@ func _on_area_2d_body_entered(body: RigidBody2D) -> void:
 
 func _on_area_atak_body_entered(body: RigidBody2D) -> void:
 	if body.is_in_group("player"):
-		body.hp -= 10
+		body.take_dmg(25)
 		player.camera_shake(9)
