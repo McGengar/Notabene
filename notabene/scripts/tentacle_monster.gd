@@ -36,14 +36,20 @@ func _physics_process(delta):
 		apply_central_force(direction*movement_speed*1000*delta)
 func attack():
 	is_attacking = true
+	$AnimatedSprite2D.stop()
+	await get_tree().create_timer(0.5).timeout
 	var rand_number = rng.randf_range(0,10)
-	if rand_number < 7:
-		var czas1 = time
+	if rand_number < 11:
+		
 		atak_area.monitoring = true
 		pivot.visible = true
-		await get_tree().create_timer(0.2,5).timeout
+		
+		$pivot/AnimatedSprite2D.frame = 0
+		$pivot/AnimatedSprite2D.play()
+		await get_tree().create_timer(0.1).timeout
 		atak_area.monitoring = false
 		pivot.visible = false
+		$AnimatedSprite2D.play()
 		pass #stab
 	else:
 		pass #special

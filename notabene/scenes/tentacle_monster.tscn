@@ -1,9 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://by4k4n4ccw5v2"]
+[gd_scene load_steps=17 format=3 uid="uid://cbmo1xrh435fx"]
 
 [ext_resource type="Script" path="res://scripts/tentacle_monster.gd" id="1_4urep"]
 [ext_resource type="Texture2D" uid="uid://ct14y7m5uku2k" path="res://art/files/man_monster_sprite_sheet.png" id="2_l2kss"]
 [ext_resource type="Script" path="res://scripts/pivot.gd" id="3_5hfil"]
-[ext_resource type="Texture2D" uid="uid://be513ms3ghrtr" path="res://art/files/stab.png" id="4_sq38i"]
+[ext_resource type="Texture2D" uid="uid://wmvxxis612nd" path="res://art/files/stab_sheet.png" id="4_otkxd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8im5c"]
 radius = 17.0294
@@ -43,15 +43,47 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_8y0xq"]
 radius = 38.3275
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_86u6i"]
+atlas = ExtResource("4_otkxd")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qn24e"]
+atlas = ExtResource("4_otkxd")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2gua"]
+atlas = ExtResource("4_otkxd")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsyit"]
+atlas = ExtResource("4_otkxd")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uanpc"]
+atlas = ExtResource("4_otkxd")
+region = Rect2(256, 0, 64, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_85s74"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_sq38i")
+"texture": SubResource("AtlasTexture_86u6i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qn24e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2gua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rsyit")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uanpc")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 12.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vdwpx"]
@@ -84,6 +116,7 @@ debug_color = Color(0.937413, 0.19501, 0.404828, 0.42)
 script = ExtResource("3_5hfil")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="pivot"]
+z_index = 1
 position = Vector2(32, 0)
 sprite_frames = SubResource("SpriteFrames_85s74")
 
