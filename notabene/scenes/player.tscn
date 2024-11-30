@@ -171,8 +171,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_kmgw7"]
 radius = 29.0172
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="Player" type="RigidBody2D"]
 gravity_scale = 0.0
+lock_rotation = true
 linear_damp = 21.257
 script = ExtResource("1_qg4h0")
 movement_speed = 100.0
@@ -217,9 +218,11 @@ frame_progress = 1.0
 
 [node name="Area2D" type="Area2D" parent="pivot/AnimatedSprite2D2"]
 position = Vector2(-13, 1)
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pivot/AnimatedSprite2D2/Area2D"]
 position = Vector2(12, -1)
 shape = SubResource("CircleShape2D_kmgw7")
 
 [connection signal="animation_finished" from="pivot/AnimatedSprite2D2" to="." method="_on_animated_sprite_2d_2_animation_finished"]
+[connection signal="body_entered" from="pivot/AnimatedSprite2D2/Area2D" to="." method="_on_area_2d_body_entered"]

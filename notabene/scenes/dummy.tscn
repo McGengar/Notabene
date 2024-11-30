@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://73wtue4uytfk"]
+
+[ext_resource type="Script" path="res://scripts/dummy.gd" id="1_2solu"]
+[ext_resource type="Texture2D" uid="uid://ckykmq3d5addl" path="res://art/files/dummy_sheet.png" id="2_5yy7e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1drp"]
+atlas = ExtResource("2_5yy7e")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpxdy"]
+atlas = ExtResource("2_5yy7e")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fks8f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1drp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lpxdy")
+}],
+"loop": true,
+"name": &"dmg",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_btaxl"]
+radius = 5.0
+height = 28.0
+
+[sub_resource type="Curve" id="Curve_qxqk1"]
+_data = [Vector2(0.0168539, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Dummy" type="RigidBody2D" groups=["enemy"]]
+gravity_scale = 0.0
+lock_rotation = true
+linear_damp = 10.0
+script = ExtResource("1_2solu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fks8f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_btaxl")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 100
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 50)
+initial_velocity_min = 90.91
+initial_velocity_max = 202.02
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_qxqk1")

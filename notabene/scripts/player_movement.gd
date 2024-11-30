@@ -5,8 +5,8 @@ var character_direction : Vector2
 @export var dash_strength = 3000.0
 @export var player_pos : Vector2
 var is_attacking = false
-var can_attack = true
-var can_dash = true
+@export var can_attack = true
+@export var can_dash = true
 
 var r_str = 10.0
 var shake_fade = 5.0
@@ -36,32 +36,37 @@ func _physics_process(delta):
 	character_direction.y = Input.get_axis("move_up","move_down")
 	character_direction = character_direction.normalized()
 	
-	if character_direction.x<0:
-		$pivot.scale.x=-1
-	else:
-		$pivot.scale.x=1
 	if Input.is_action_just_pressed("attack") and can_attack:
 		if character_direction.x<0:
+			$pivot.scale.x=-1
 			$AnimatedSprite2D.flip_h = true
 		is_attacking = true
 		can_attack = false
+		$pivot/AnimatedSprite2D2/Area2D.monitoring = true
 		camera_shake(5)
 		$pivot/AnimatedSprite2D2.visible= true
 		$AnimatedSprite2D.animation = "attack"
 		$pivot/AnimatedSprite2D2.play()
 		await get_tree().create_timer(0.25).timeout
 		$AnimatedSprite2D.flip_h = false
+		$pivot/AnimatedSprite2D2/Area2D.monitoring = false
 		is_attacking = false
 		await get_tree().create_timer(0.25).timeout
+		$pivot.scale.x=1
 		can_attack = true
 		
 	if Input.is_action_just_pressed("dash") and can_dash:
 		can_dash = false
+		collision_mask = 0
+		collision_layer = 0
 		$AnimatedSprite2D/CPUParticles2D.emitting = true
 		apply_central_force(character_direction*dash_strength*1000*delta)
 		await get_tree().create_timer(0.1).timeout
 		$AnimatedSprite2D/CPUParticles2D.emitting = false
-		await get_tree().create_timer(0.4).timeout
+		await get_tree().create_timer(0.1,5).timeout
+		collision_mask = 1
+		collision_mask = 1
+		await get_tree().create_timer(0.2,5).timeout
 		can_dash = true
 		
 		
@@ -75,3 +80,8 @@ func _physics_process(delta):
 		
 		
 	
+
+
+func _on_area_2d_body_entered(body):
+	if body.is_in_group("enemy"):
+		body.dealt_dmg(10)
