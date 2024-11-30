@@ -4,7 +4,7 @@ extends RigidBody2D
 @export var hp = 100
 var direction : Vector2
 @export var time = 0
-
+@export var bullet: PackedScene
 
 @onready var player = get_node("../Player")
 
@@ -45,7 +45,13 @@ func _on_timer_timeout():
 			direction.y = player.global_position.y - global_position.y
 			direction = direction.normalized()
 			apply_central_force(direction*movement_speed*2000)
-		
+			await get_tree().create_timer(0.3).timeout
+			if hp>0:
+				if global_position.distance_to(player.global_position)<210:
+						var cry = bullet.instantiate()
+						get_parent().add_child(cry)
+						cry.position = global_position
+						cry.player_direction = direction
 	
 
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://dwtq8vqfcyqxb"]
+[gd_scene load_steps=16 format=3 uid="uid://dwtq8vqfcyqxb"]
 
 [ext_resource type="Script" path="res://scripts/boss_monster.gd" id="1_x5rr1"]
 [ext_resource type="Shader" path="res://shaders/outline.gdshader" id="2_s23hp"]
+[ext_resource type="PackedScene" path="res://scenes/bullet.tscn" id="2_wjgxp"]
 [ext_resource type="Texture2D" uid="uid://lnahjow24abp" path="res://art/files/boss_demon_sprite_sheet.png" id="3_sbedx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wnibt"]
@@ -77,6 +78,7 @@ gravity_scale = 0.0
 lock_rotation = true
 linear_damp = 10.0
 script = ExtResource("1_x5rr1")
+bullet = ExtResource("2_wjgxp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_wnibt")
