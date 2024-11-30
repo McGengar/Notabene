@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b2q3yckua5vt1"]
+[gd_scene load_steps=5 format=3 uid="uid://b2q3yckua5vt1"]
 
 [ext_resource type="PackedScene" uid="uid://btdsg11tmwjld" path="res://scenes/player.tscn" id="1_tpb81"]
+[ext_resource type="PackedScene" uid="uid://c6xtn86sydiqe" path="res://scenes/dziecko.tscn" id="2_8gmmg"]
+[ext_resource type="PackedScene" uid="uid://by4k4n4ccw5v2" path="res://scenes/tentacle_monster.tscn" id="2_c26pi"]
 [ext_resource type="PackedScene" uid="uid://c728exa2uv1op" path="res://scenes/bulky.tscn" id="2_pvtqg"]
 
 [node name="test" type="Node2D"]
@@ -8,5 +10,11 @@
 [node name="Player" parent="." instance=ExtResource("1_tpb81")]
 position = Vector2(194, 198)
 
+[node name="Tentacle Monster" parent="." instance=ExtResource("2_c26pi")]
+position = Vector2(311, 239)
+
+[node name="DZIECKO" parent="." instance=ExtResource("2_8gmmg")]
+position = Vector2(196, 306)
+
 [node name="Bulky" parent="." instance=ExtResource("2_pvtqg")]
-position = Vector2(310, 193)
+position = Vector2(278, 87)

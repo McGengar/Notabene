@@ -1,8 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://4s1ccml1w24n"]
+[gd_scene load_steps=12 format=3 uid="uid://c6xtn86sydiqe"]
 
 [ext_resource type="Script" path="res://scripts/dziecko.gd" id="1_qayje"]
-[ext_resource type="PackedScene" uid="uid://i0rqglr4u8cp" path="res://scenes/bullet.tscn" id="2_qqssr"]
+[ext_resource type="PackedScene" path="res://scenes/bullet.tscn" id="2_qqssr"]
 [ext_resource type="Texture2D" uid="uid://knws10ori4ek" path="res://art/files/baby_sprite.png" id="2_yfyph"]
+[ext_resource type="Shader" path="res://shaders/outline.gdshader" id="3_lhr12"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_toamk"]
+shader = ExtResource("3_lhr12")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2enx6"]
 atlas = ExtResource("2_yfyph")
@@ -48,13 +57,14 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_oar3c"]
 radius = 18.1108
 
-[node name="DZIECKO" type="RigidBody2D"]
+[node name="DZIECKO" type="RigidBody2D" groups=["enemy"]]
 gravity_scale = 0.0
 lock_rotation = true
 script = ExtResource("1_qayje")
 bullet = ExtResource("2_qqssr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_toamk")
 sprite_frames = SubResource("SpriteFrames_ct6pi")
 animation = &"walk"
 autoplay = "walk"

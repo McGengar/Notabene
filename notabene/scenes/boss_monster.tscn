@@ -1,69 +1,65 @@
-[gd_scene load_steps=15 format=3 uid="uid://hb31ymywrq5w"]
+[gd_scene load_steps=16 format=3 uid="uid://dwtq8vqfcyqxb"]
 
-[ext_resource type="Script" path="res://scripts/dog_monster.gd" id="1_6bnpr"]
-[ext_resource type="Shader" path="res://shaders/outline.gdshader" id="2_ethex"]
-[ext_resource type="Texture2D" uid="uid://b48vifcddpnph" path="res://art/files/dog_sheet.png" id="3_s2eh7"]
+[ext_resource type="Script" path="res://scripts/boss_monster.gd" id="1_x5rr1"]
+[ext_resource type="Shader" path="res://shaders/outline.gdshader" id="2_s23hp"]
+[ext_resource type="PackedScene" path="res://scenes/bullet.tscn" id="2_wjgxp"]
+[ext_resource type="Texture2D" uid="uid://lnahjow24abp" path="res://art/files/boss_demon_sprite_sheet.png" id="3_sbedx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wnibt"]
-shader = ExtResource("2_ethex")
+shader = ExtResource("2_s23hp")
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/width = 1.0
 shader_parameter/pattern = 0
 shader_parameter/inside = false
 shader_parameter/add_margins = true
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_h6n6n"]
-atlas = ExtResource("3_s2eh7")
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4l75"]
+atlas = ExtResource("3_sbedx")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_472mm"]
-atlas = ExtResource("3_s2eh7")
+[sub_resource type="AtlasTexture" id="AtlasTexture_kncgy"]
+atlas = ExtResource("3_sbedx")
 region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gbmj0"]
-atlas = ExtResource("3_s2eh7")
+[sub_resource type="AtlasTexture" id="AtlasTexture_v67yt"]
+atlas = ExtResource("3_sbedx")
 region = Rect2(128, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_52ir6"]
-atlas = ExtResource("3_s2eh7")
+[sub_resource type="AtlasTexture" id="AtlasTexture_cg67u"]
+atlas = ExtResource("3_sbedx")
 region = Rect2(192, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1pl2h"]
-atlas = ExtResource("3_s2eh7")
+[sub_resource type="AtlasTexture" id="AtlasTexture_iuiv3"]
+atlas = ExtResource("3_sbedx")
 region = Rect2(256, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_coppx"]
-atlas = ExtResource("3_s2eh7")
+[sub_resource type="AtlasTexture" id="AtlasTexture_0sv03"]
+atlas = ExtResource("3_sbedx")
 region = Rect2(320, 0, 64, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_fks8f"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_sleyl"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_h6n6n")
+"texture": SubResource("AtlasTexture_v4l75")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_472mm")
+"texture": SubResource("AtlasTexture_kncgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v67yt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cg67u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iuiv3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0sv03")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gbmj0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_52ir6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1pl2h")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_coppx")
-}],
-"loop": true,
-"name": &"jump",
 "speed": 12.0
 }]
 
@@ -77,26 +73,28 @@ radius = 16.0
 _data = [Vector2(0.0168539, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[node name="DogMonster" type="RigidBody2D" groups=["enemy"]]
+[node name="Boss Monster" type="RigidBody2D" groups=["enemy"]]
 gravity_scale = 0.0
 lock_rotation = true
 linear_damp = 10.0
-script = ExtResource("1_6bnpr")
+script = ExtResource("1_x5rr1")
+bullet = ExtResource("2_wjgxp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_wnibt")
-sprite_frames = SubResource("SpriteFrames_fks8f")
+sprite_frames = SubResource("SpriteFrames_sleyl")
 autoplay = "default"
-frame_progress = 0.691786
+frame = 5
+frame_progress = 0.0571439
 
 [node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
-position = Vector2(-11, 6)
+position = Vector2(-1, 5)
 shape = SubResource("CircleShape2D_ao2fy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3, 10)
+position = Vector2(-1, 7)
 shape = SubResource("CircleShape2D_qvqpq")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
