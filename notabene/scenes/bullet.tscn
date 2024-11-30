@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://i0rqglr4u8cp"]
+
+[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_7rwjl"]
+[ext_resource type="Texture2D" uid="uid://ctdegb6jtwf2l" path="res://art/files/scream.png" id="2_fh4v4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lgbq"]
+atlas = ExtResource("2_fh4v4")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bbske"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lgbq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5q7vy"]
+radius = 13.0384
+
+[node name="Bullet" type="RigidBody2D"]
+gravity_scale = 0.0
+linear_damp = -1.0
+script = ExtResource("1_7rwjl")
+movement_speed = null
+player_direction = null
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, -2)
+sprite_frames = SubResource("SpriteFrames_bbske")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_5q7vy")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
