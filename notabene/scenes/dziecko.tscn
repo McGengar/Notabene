@@ -58,7 +58,7 @@ bullet = ExtResource("2_qqssr")
 sprite_frames = SubResource("SpriteFrames_ct6pi")
 animation = &"walk"
 autoplay = "walk"
-frame_progress = 0.323115
+frame_progress = 0.161695
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_oar3c")

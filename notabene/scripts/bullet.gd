@@ -12,4 +12,4 @@ func _physics_process(delta):
 
 func _on_area_2d_body_entered(body: RigidBody2D) -> void:
 	if body.is_in_group("player"):
-		body.hp = 
+		body.take_dmg(25)
