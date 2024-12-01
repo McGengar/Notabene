@@ -199,6 +199,7 @@ volume_db = -8.432
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_0f8ft")
 autoplay = true
+stream_paused = true
 
 [node name="Earring" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_2wrjy")
