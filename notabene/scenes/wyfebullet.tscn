@@ -1,17 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://bik34nwdtnwdi"]
+[gd_scene load_steps=7 format=3 uid="uid://bik34nwdtnwdi"]
 
 [ext_resource type="Script" path="res://scripts/wyfebullet.gd" id="1_hji5j"]
-[ext_resource type="Texture2D" uid="uid://dhu1pyuc35jvg" path="res://art/files/wyfebullet.png" id="1_ndtyp"]
+[ext_resource type="Shader" path="res://shaders/outline.gdshader" id="2_8sokg"]
+[ext_resource type="Texture2D" uid="uid://b2ijjxpthcyfj" path="res://art/files/moon.png" id="2_oul6p"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wqvon"]
-atlas = ExtResource("1_ndtyp")
-region = Rect2(0, 0, 64, 64)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_we2l5"]
+shader = ExtResource("2_8sokg")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ece4m"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wqvon")
+"texture": ExtResource("2_oul6p")
 }],
 "loop": true,
 "name": &"default",
@@ -19,16 +24,20 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ae6tl"]
-radius = 13.0384
+radius = 19.0263
 
 [node name="RigidBody2D" type="RigidBody2D"]
+gravity_scale = 0.0
 script = ExtResource("1_hji5j")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(2, -2)
+material = SubResource("ShaderMaterial_we2l5")
+position = Vector2(9.53674e-07, 9.53674e-07)
+scale = Vector2(0.734375, 0.734375)
 sprite_frames = SubResource("SpriteFrames_ece4m")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, -1)
 shape = SubResource("CircleShape2D_ae6tl")

@@ -8,7 +8,7 @@ var direction : Vector2
 
 func _physics_process(delta):
 	player_direction = player_direction.normalized()
-	#look_at()
+	
 	apply_central_force(player_direction*movement_speed*1000*delta)
 
 

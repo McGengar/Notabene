@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://c2wqdwcuaenmn"]
+[gd_scene load_steps=17 format=3 uid="uid://c2wqdwcuaenmn"]
 
 [ext_resource type="Script" path="res://scripts/wyfe.gd" id="1_bxoi3"]
 [ext_resource type="Shader" path="res://shaders/outline.gdshader" id="2_i4fq3"]
 [ext_resource type="Texture2D" uid="uid://dlpb7v3eqkrli" path="res://art/files/wyfe_sprite_sheet.png" id="2_n0lsw"]
+[ext_resource type="PackedScene" uid="uid://bik34nwdtnwdi" path="res://scenes/wyfebullet.tscn" id="2_nm4a5"]
 [ext_resource type="Texture2D" uid="uid://gqmaly4ef3nh" path="res://art/files/wyfe.png" id="2_obkm3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d4oac"]
@@ -90,13 +91,17 @@ gravity_scale = 0.0
 lock_rotation = true
 linear_damp = 20.0
 script = ExtResource("1_bxoi3")
+wyfebullet = ExtResource("2_nm4a5")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(15.86, 1.995)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_d4oac")
 sprite_frames = SubResource("SpriteFrames_ae8uo")
 animation = &"spell"
-frame = 6
-frame_progress = 1.0
+frame = 4
+frame_progress = 0.972582
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_3yk0k")

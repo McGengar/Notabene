@@ -17,7 +17,7 @@ func dealt_dmg(amount):
 		queue_free()
 	else:
 		await get_tree().create_timer(0.2).timeout
-		$AnimatedSprite2D.animation = "default"
+		$AnimatedSprite2D.animation = "walk"
 # Called when the node enters the scene tree for the first time.
 func _physics_process(delta):
 	#player = $"../../Player"
@@ -34,7 +34,25 @@ func _physics_process(delta):
 
 func _on_timer_timeout() -> void:
 	is_attacking = true
-	$AnimatedSprite2D.animation = "attack"
-	await get_tree().create_timer(1.4).timeout
-	#tutaj
+	$AnimatedSprite2D.animation = "spell"
+	await get_tree().create_timer(1.0).timeout
+	if hp>0:
+		var bullet_dir : PackedVector2Array = [Vector2(0,1), Vector2(0,-1), Vector2(1,0), Vector2(-1,0), Vector2(1,1), Vector2(-1,-1), Vector2(-1,1), Vector2(1,-1)]
+		if global_position.distance_to(player.global_position)<210:
+			for n in range(8):
+						var cry = wyfebullet.instantiate()
+						get_parent().add_child(cry)
+						cry.position = global_position
+						#bullet.rotation = deg_to_rad(45)*n
+						cry.player_direction = bullet_dir[n]
+	await get_tree().create_timer(0.3).timeout
+	if hp>0:
+		var bullet_dir : PackedVector2Array = [Vector2(0,1), Vector2(0,-1), Vector2(1,0), Vector2(-1,0), Vector2(1,1), Vector2(-1,-1), Vector2(-1,1), Vector2(1,-1)]
+		if global_position.distance_to(player.global_position)<210:
+			for n in range(8):
+						var cry = wyfebullet.instantiate()
+						get_parent().add_child(cry)
+						cry.position = global_position
+						#bullet.rotation = deg_to_rad(45)*n
+						cry.player_direction = bullet_dir[n]
 	is_attacking = false

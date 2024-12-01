@@ -187,7 +187,7 @@ distance = -161.0
 distance = 51.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fnrn0"]
-distance = 66.0
+distance = 70.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_snmbt"]
 distance = -289.0

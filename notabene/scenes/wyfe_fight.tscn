@@ -181,6 +181,7 @@ point_count = 2
 [node name="Arena" type="Node2D"]
 
 [node name="Wyfe" parent="." instance=ExtResource("4_1b1ay")]
+z_index = 1
 position = Vector2(6, -87)
 
 [node name="Sword" parent="." instance=ExtResource("5_3y1tj")]
