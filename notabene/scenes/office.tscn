@@ -244,7 +244,7 @@ radius = 29.0172
 distance = -101.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_42y3d"]
-distance = 55.0
+distance = 41.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fnrn0"]
 distance = 129.0
@@ -253,6 +253,7 @@ distance = 129.0
 distance = -1153.0
 
 [node name="Office" type="Node2D"]
+position = Vector2(5, 0)
 script = ExtResource("1_7kbvs")
 
 [node name="background" type="Node2D" parent="."]
