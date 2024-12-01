@@ -1,5 +1,6 @@
-[gd_scene load_steps=38 format=3 uid="uid://dblk7vv8fwmdk"]
+[gd_scene load_steps=44 format=3 uid="uid://61xg1t8ldxb5"]
 
+[ext_resource type="Script" path="res://scripts/home.gd" id="1_qxhun"]
 [ext_resource type="Shader" path="res://shaders/camera.gdshader" id="2_fdxxh"]
 [ext_resource type="Texture2D" uid="uid://b0h81ec4majjk" path="res://art/files/home.png" id="3_2v6gs"]
 [ext_resource type="Script" path="res://scripts/player_movement.gd" id="4_2w1mc"]
@@ -8,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://duvylkbvl0ifg" path="res://art/files/player_spirte_sheet.png" id="7_v3vy8"]
 [ext_resource type="Texture2D" uid="uid://cbj2i0jwgfgcf" path="res://art/files/player_spirte1.png" id="8_alrlx"]
 [ext_resource type="Texture2D" uid="uid://6c346jrxj10k" path="res://art/files/slash_sprite_sheet.png" id="9_vokju"]
+[ext_resource type="Texture2D" uid="uid://b2tomqklifdob" path="res://art/files/wifewoman_sprite_sheet.png" id="10_j516x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1nyfh"]
 shader = ExtResource("5_t7o74")
@@ -190,7 +192,33 @@ distance = 70.0
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_snmbt"]
 distance = -289.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wj8s"]
+atlas = ExtResource("10_j516x")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pcu0"]
+atlas = ExtResource("10_j516x")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jxf3v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wj8s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2pcu0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jvgrg"]
+size = Vector2(59, 32)
+
 [node name="Home" type="Node2D"]
+script = ExtResource("1_qxhun")
 
 [node name="background" type="Node2D" parent="."]
 
@@ -291,6 +319,19 @@ shape = SubResource("WorldBoundaryShape2D_snmbt")
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(29, 89)
+sprite_frames = SubResource("SpriteFrames_jxf3v")
+autoplay = "default"
+frame_progress = 0.0297367
+
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
+position = Vector2(17.5, -1)
+shape = SubResource("RectangleShape2D_jvgrg")
+
 [connection signal="animation_finished" from="Node2D/Player/pivot/AnimatedSprite2D2" to="Node2D/Player" method="_on_animated_sprite_2d_2_animation_finished"]
 [connection signal="body_entered" from="Node2D/Player/pivot/AnimatedSprite2D2/Area2D" to="Node2D/Player" method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_body_entered"]

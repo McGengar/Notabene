@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://c6xtn86sydiqe"]
 
 [ext_resource type="Script" path="res://scripts/dziecko.gd" id="1_qayje"]
-[ext_resource type="PackedScene" path="res://scenes/bullet.tscn" id="2_qqssr"]
+[ext_resource type="PackedScene" uid="uid://i0rqglr4u8cp" path="res://scenes/bullet.tscn" id="2_qqssr"]
 [ext_resource type="Texture2D" uid="uid://knws10ori4ek" path="res://art/files/baby_sprite.png" id="2_yfyph"]
 [ext_resource type="Shader" path="res://shaders/outline.gdshader" id="3_lhr12"]
 
