@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://ccdbeg3ruoj8m"]
+[gd_scene load_steps=30 format=3 uid="uid://ccdbeg3ruoj8m"]
 
 [ext_resource type="Script" path="res://scripts/metro.gd" id="1_0ruda"]
 [ext_resource type="Texture2D" uid="uid://ba5jxgvek0mku" path="res://art/files/metro.png" id="1_gtjdi"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://duvylkbvl0ifg" path="res://art/files/player_spirte_sheet.png" id="4_5efkg"]
 [ext_resource type="Shader" path="res://shaders/camera.gdshader" id="5_7a1ti"]
 [ext_resource type="Texture2D" uid="uid://ckykmq3d5addl" path="res://art/files/dummy_sheet.png" id="5_ipsdv"]
+[ext_resource type="AudioStream" uid="uid://b2kbvgy21tuq8" path="res://sounds/metro.wav" id="8_2rou2"]
+[ext_resource type="AudioStream" uid="uid://j5y7wr7hmmgh" path="res://sounds/japanese-conversation-23645.mp3" id="8_r2o7o"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2i3sg"]
 shader = ExtResource("2_w5pn7")
@@ -254,5 +256,13 @@ texture = SubResource("GradientTexture1D_jxw3r")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_r2o7o")
+autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_2rou2")
+autoplay = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
