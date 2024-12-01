@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://0ky8x0fhyla7"
+path="res://.godot/imported/dog ambient.wav-64d4bf9028b0ff6e5e395f7f7af2c4b6.sample"
+
+[deps]
+
+source_file="res://sounds/dog ambient.wav"
+dest_files=["res://.godot/imported/dog ambient.wav-64d4bf9028b0ff6e5e395f7f7af2c4b6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
