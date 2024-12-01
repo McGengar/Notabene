@@ -1,6 +1,6 @@
-[gd_scene load_steps=39 format=3 uid="uid://kkf8sro3pbrl"]
+[gd_scene load_steps=40 format=3 uid="uid://kkf8sro3pbrl"]
 
-[ext_resource type="Script" path="res://scripts/home.gd" id="1_pau70"]
+[ext_resource type="Script" path="res://scripts/room.gd" id="1_xbsud"]
 [ext_resource type="Texture2D" uid="uid://cni2yn4oqptev" path="res://art/files/room.png" id="2_ps7da"]
 [ext_resource type="Script" path="res://scripts/player_movement.gd" id="3_rwnuy"]
 [ext_resource type="Shader" path="res://shaders/outline.gdshader" id="4_iw6mp"]
@@ -191,8 +191,11 @@ distance = 1.00025
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_snmbt"]
 distance = -252.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qbhlg"]
+size = Vector2(37, 46)
+
 [node name="Room" type="Node2D"]
-script = ExtResource("1_pau70")
+script = ExtResource("1_xbsud")
 
 [node name="background" type="Node2D" parent="."]
 
@@ -258,7 +261,7 @@ limit_right = 288
 limit_bottom = 162
 
 [node name="Sprite2D2" type="Sprite2D" parent="Node2D/Player/Camera2D"]
-visible = false
+modulate = Color(1, 1, 1, 0)
 z_index = 1
 position = Vector2(978.497, -3784.5)
 scale = Vector2(479.004, 145351)
@@ -293,6 +296,13 @@ shape = SubResource("WorldBoundaryShape2D_snmbt")
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(246, 74)
+shape = SubResource("RectangleShape2D_qbhlg")
+
 [connection signal="animation_finished" from="Node2D/Player/pivot/AnimatedSprite2D2" to="Node2D/Player" method="_on_animated_sprite_2d_2_animation_finished"]
 [connection signal="body_entered" from="Node2D/Player/pivot/AnimatedSprite2D2/Area2D" to="Node2D/Player" method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

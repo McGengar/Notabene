@@ -190,7 +190,7 @@ distance = 51.0
 distance = 70.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_snmbt"]
-distance = -289.0
+distance = -1150.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r6to1"]
 atlas = ExtResource("9_8aufq")
