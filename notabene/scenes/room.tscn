@@ -1,18 +1,17 @@
-[gd_scene load_steps=44 format=3 uid="uid://dblk7vv8fwmdk"]
+[gd_scene load_steps=39 format=3 uid="uid://kkf8sro3pbrl"]
 
-[ext_resource type="Script" path="res://scripts/home.gd" id="1_qxhun"]
-[ext_resource type="Shader" path="res://shaders/camera.gdshader" id="2_fdxxh"]
-[ext_resource type="Texture2D" uid="uid://b0h81ec4majjk" path="res://art/files/home.png" id="3_2v6gs"]
-[ext_resource type="Script" path="res://scripts/player_movement.gd" id="4_2w1mc"]
-[ext_resource type="Shader" path="res://shaders/outline.gdshader" id="5_t7o74"]
-[ext_resource type="Texture2D" uid="uid://dq0mkuu6aa2yo" path="res://art/files/player_attack_right.png" id="6_nkb4d"]
-[ext_resource type="Texture2D" uid="uid://duvylkbvl0ifg" path="res://art/files/player_spirte_sheet.png" id="7_v3vy8"]
-[ext_resource type="Texture2D" uid="uid://cbj2i0jwgfgcf" path="res://art/files/player_spirte1.png" id="8_alrlx"]
-[ext_resource type="Texture2D" uid="uid://6c346jrxj10k" path="res://art/files/slash_sprite_sheet.png" id="9_vokju"]
-[ext_resource type="Texture2D" uid="uid://b2tomqklifdob" path="res://art/files/wifewoman_sprite_sheet.png" id="10_j516x"]
+[ext_resource type="Script" path="res://scripts/home.gd" id="1_pau70"]
+[ext_resource type="Texture2D" uid="uid://cni2yn4oqptev" path="res://art/files/room.png" id="2_ps7da"]
+[ext_resource type="Script" path="res://scripts/player_movement.gd" id="3_rwnuy"]
+[ext_resource type="Shader" path="res://shaders/outline.gdshader" id="4_iw6mp"]
+[ext_resource type="Texture2D" uid="uid://dq0mkuu6aa2yo" path="res://art/files/player_attack_right.png" id="5_vd28r"]
+[ext_resource type="Texture2D" uid="uid://duvylkbvl0ifg" path="res://art/files/player_spirte_sheet.png" id="6_43b1k"]
+[ext_resource type="Texture2D" uid="uid://cbj2i0jwgfgcf" path="res://art/files/player_spirte1.png" id="7_4hh70"]
+[ext_resource type="Texture2D" uid="uid://6c346jrxj10k" path="res://art/files/slash_sprite_sheet.png" id="8_tgyx3"]
+[ext_resource type="Shader" path="res://shaders/camera.gdshader" id="9_f7lkp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1nyfh"]
-shader = ExtResource("5_t7o74")
+shader = ExtResource("4_iw6mp")
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/width = 1.0
 shader_parameter/pattern = 0
@@ -20,39 +19,39 @@ shader_parameter/inside = false
 shader_parameter/add_margins = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cjduf"]
-atlas = ExtResource("6_nkb4d")
+atlas = ExtResource("5_vd28r")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2y54g"]
-atlas = ExtResource("6_nkb4d")
+atlas = ExtResource("5_vd28r")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_twnwk"]
-atlas = ExtResource("6_nkb4d")
+atlas = ExtResource("5_vd28r")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ufy42"]
-atlas = ExtResource("6_nkb4d")
+atlas = ExtResource("5_vd28r")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fabqk"]
-atlas = ExtResource("7_v3vy8")
+atlas = ExtResource("6_43b1k")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7fk7x"]
-atlas = ExtResource("7_v3vy8")
+atlas = ExtResource("6_43b1k")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dw486"]
-atlas = ExtResource("7_v3vy8")
+atlas = ExtResource("6_43b1k")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uq3v8"]
-atlas = ExtResource("7_v3vy8")
+atlas = ExtResource("6_43b1k")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ucvml"]
-atlas = ExtResource("7_v3vy8")
+atlas = ExtResource("6_43b1k")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gkwyb"]
@@ -107,23 +106,23 @@ colors = PackedColorArray(0, 0, 0, 0.713726, 0, 0, 0, 0)
 size = Vector2(10, 14.67)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_87rd3"]
-atlas = ExtResource("9_vokju")
+atlas = ExtResource("8_tgyx3")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yrt3g"]
-atlas = ExtResource("9_vokju")
+atlas = ExtResource("8_tgyx3")
 region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_70jut"]
-atlas = ExtResource("9_vokju")
+atlas = ExtResource("8_tgyx3")
 region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ukgdn"]
-atlas = ExtResource("9_vokju")
+atlas = ExtResource("8_tgyx3")
 region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uuhl6"]
-atlas = ExtResource("9_vokju")
+atlas = ExtResource("8_tgyx3")
 region = Rect2(256, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p2plq"]
@@ -152,14 +151,14 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_kmgw7"]
 radius = 29.0172
 
-[sub_resource type="Gradient" id="Gradient_cmlav"]
+[sub_resource type="Gradient" id="Gradient_ufjpr"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_gi7t8"]
-gradient = SubResource("Gradient_cmlav")
+gradient = SubResource("Gradient_ufjpr")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1ayg1"]
-shader = ExtResource("2_fdxxh")
+shader = ExtResource("9_f7lkp")
 shader_parameter/resolution = Vector2(480, 480)
 shader_parameter/scan_line_amount = 0.022
 shader_parameter/warp_amount = 0.0
@@ -175,16 +174,16 @@ shader_parameter/roll_speed = 3.8e-07
 shader_parameter/scan_line_strength = -1.0
 shader_parameter/pixel_strength = 0.0
 
-[sub_resource type="Gradient" id="Gradient_m2omj"]
+[sub_resource type="Gradient" id="Gradient_lpaw8"]
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_23vr0"]
-gradient = SubResource("Gradient_m2omj")
+gradient = SubResource("Gradient_lpaw8")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d00dx"]
 distance = -130.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_42y3d"]
-distance = 69.0
+distance = 70.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fnrn0"]
 distance = 1.00025
@@ -192,49 +191,24 @@ distance = 1.00025
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_snmbt"]
 distance = -252.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4wj8s"]
-atlas = ExtResource("10_j516x")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2pcu0"]
-atlas = ExtResource("10_j516x")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_jxf3v"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4wj8s")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2pcu0")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jvgrg"]
-size = Vector2(59, 32)
-
-[node name="Home" type="Node2D"]
-script = ExtResource("1_qxhun")
+[node name="Room" type="Node2D"]
+script = ExtResource("1_pau70")
 
 [node name="background" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="background"]
 position = Vector2(144, 81)
-texture = ExtResource("3_2v6gs")
+texture = ExtResource("2_ps7da")
 
 [node name="Node2D" type="Node2D" parent="."]
 y_sort_enabled = true
 
 [node name="Player" type="RigidBody2D" parent="Node2D" groups=["player"]]
-position = Vector2(275.735, 90.79)
+position = Vector2(31.5, 69.01)
 gravity_scale = 0.0
 lock_rotation = true
 linear_damp = 21.257
-script = ExtResource("4_2w1mc")
+script = ExtResource("3_rwnuy")
 movement_speed = 100.0
 can_attack = false
 can_dash = false
@@ -250,7 +224,7 @@ z_index = -1
 emitting = false
 amount = 50
 lifetime = 0.25
-texture = ExtResource("8_alrlx")
+texture = ExtResource("7_4hh70")
 gravity = Vector2(0, 0)
 color = Color(0, 0, 0, 1)
 color_ramp = SubResource("Gradient_aqy8v")
@@ -319,19 +293,6 @@ shape = SubResource("WorldBoundaryShape2D_snmbt")
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(29, 89)
-sprite_frames = SubResource("SpriteFrames_jxf3v")
-autoplay = "default"
-frame_progress = 0.962965
-
-[node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
-position = Vector2(17.5, -1)
-shape = SubResource("RectangleShape2D_jvgrg")
-
 [connection signal="animation_finished" from="Node2D/Player/pivot/AnimatedSprite2D2" to="Node2D/Player" method="_on_animated_sprite_2d_2_animation_finished"]
 [connection signal="body_entered" from="Node2D/Player/pivot/AnimatedSprite2D2/Area2D" to="Node2D/Player" method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="body_entered" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
