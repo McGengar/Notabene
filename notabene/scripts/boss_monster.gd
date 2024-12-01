@@ -44,6 +44,7 @@ func _on_timer_timeout():
 		time=0;
 		direction= Vector2.ZERO
 		if player != null:
+			$AudioStreamPlayer2D.play()
 			direction.x = player.global_position.x -global_position.x 
 			direction.y = player.global_position.y - global_position.y
 			direction = direction.normalized()

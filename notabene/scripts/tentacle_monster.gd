@@ -44,7 +44,7 @@ func attack():
 	$AnimatedSprite2D.stop()
 	$AnimatedSprite2D.animation="attack"
 	await get_tree().create_timer(0.5).timeout
-	
+	$AudioStreamPlayer2D.play()
 	atak_area.monitoring = true
 	pivot.visible = true
 	$pivot/AnimatedSprite2D.frame = 0
