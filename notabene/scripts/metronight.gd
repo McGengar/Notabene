@@ -6,6 +6,7 @@ var rng = RandomNumberGenerator.new()
 var shake_str = 0
 @onready var baby: AudioStreamPlayer = $baby
 @onready var metro: AudioStreamPlayer = $metro
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 var time=0
 
@@ -30,6 +31,7 @@ func _physics_process(delta: float) -> void:
 			$Camera2D.zoom.x*=1.001
 			$Camera2D.zoom.y*=1.001
 		else:
+			audio_stream_player.stop()
 			metro.stop()
 			baby.stop()
 			$Camera2D/Sprite2D2.modulate = Color(0,0,0,255)
