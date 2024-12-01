@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://dblk7vv8fwmdk"]
+[gd_scene load_steps=47 format=3 uid="uid://dblk7vv8fwmdk"]
 
 [ext_resource type="Script" path="res://scripts/home.gd" id="1_qxhun"]
 [ext_resource type="Shader" path="res://shaders/camera.gdshader" id="2_fdxxh"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://6c346jrxj10k" path="res://art/files/slash_sprite_sheet.png" id="9_vokju"]
 [ext_resource type="Texture2D" uid="uid://b2tomqklifdob" path="res://art/files/wifewoman_sprite_sheet.png" id="10_j516x"]
 [ext_resource type="AudioStream" uid="uid://cdlssve8my2c8" path="res://sounds/ear-ringing-sound-effect-26746.mp3" id="11_nra3i"]
+[ext_resource type="AudioStream" uid="uid://dxsab51kvtwk3" path="res://sounds/Scary Woman Screaming - Sound Effect (HD).mp3" id="12_f1ssw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1nyfh"]
 shader = ExtResource("5_t7o74")
@@ -343,7 +344,11 @@ shape = SubResource("RectangleShape2D_jvgrg")
 
 [node name="Earring" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_nra3i")
-volume_db = -20.0
+volume_db = -15.0
+
+[node name="woman" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_f1ssw")
+volume_db = -21.549
 
 [connection signal="animation_finished" from="Node2D/Player/pivot/AnimatedSprite2D2" to="Node2D/Player" method="_on_animated_sprite_2d_2_animation_finished"]
 [connection signal="body_entered" from="Node2D/Player/pivot/AnimatedSprite2D2/Area2D" to="Node2D/Player" method="_on_area_2d_body_entered"]
