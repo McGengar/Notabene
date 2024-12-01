@@ -13,6 +13,7 @@ func _process(delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	sprite_2d.visible = true
-	await get_tree().create_timer(1).timeout
-	#get_tree().change_scene_to_packed(load("res://scenes/final.tscn"))
+	if body.is_in_group("player"):
+		sprite_2d.visible = true
+		await get_tree().create_timer(1).timeout
+		get_tree().change_scene_to_packed(load("res://scenes/room.tscn"))

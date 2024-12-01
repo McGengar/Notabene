@@ -1,18 +1,23 @@
-[gd_scene load_steps=40 format=3 uid="uid://i7s86caconpg"]
+[gd_scene load_steps=40 format=3 uid="uid://cn1x2swm5l0no"]
 
-[ext_resource type="Script" path="res://scripts/homeafter.gd" id="1_xb7q7"]
-[ext_resource type="Texture2D" uid="uid://b0h81ec4majjk" path="res://art/files/home.png" id="2_i2gox"]
-[ext_resource type="Script" path="res://scripts/player_movement.gd" id="3_jaj2u"]
-[ext_resource type="Texture2D" uid="uid://ducjhopqrtp7j" path="res://art/files/black.png" id="4_faw7l"]
-[ext_resource type="Shader" path="res://shaders/outline.gdshader" id="4_i52y1"]
-[ext_resource type="Texture2D" uid="uid://dq0mkuu6aa2yo" path="res://art/files/player_attack_right.png" id="5_a73fp"]
-[ext_resource type="Texture2D" uid="uid://duvylkbvl0ifg" path="res://art/files/player_spirte_sheet.png" id="6_ug7rq"]
-[ext_resource type="Texture2D" uid="uid://cbj2i0jwgfgcf" path="res://art/files/player_spirte1.png" id="7_llxji"]
-[ext_resource type="Shader" path="res://shaders/camera.gdshader" id="8_pg5iv"]
-[ext_resource type="Texture2D" uid="uid://6c346jrxj10k" path="res://art/files/slash_sprite_sheet.png" id="9_adye6"]
+[ext_resource type="Script" path="res://scripts/player_finale.gd" id="1_xws6h"]
+[ext_resource type="Shader" path="res://shaders/outline.gdshader" id="2_7rhe2"]
+[ext_resource type="Texture2D" uid="uid://dq0mkuu6aa2yo" path="res://art/files/player_attack_right.png" id="3_nho45"]
+[ext_resource type="Texture2D" uid="uid://duvylkbvl0ifg" path="res://art/files/player_spirte_sheet.png" id="4_2yogq"]
+[ext_resource type="Texture2D" uid="uid://cbj2i0jwgfgcf" path="res://art/files/player_spirte1.png" id="5_ugh6b"]
+[ext_resource type="Shader" path="res://shaders/camera.gdshader" id="6_1c8ee"]
+[ext_resource type="Texture2D" uid="uid://6c346jrxj10k" path="res://art/files/slash_sprite_sheet.png" id="7_efqws"]
+[ext_resource type="PackedScene" uid="uid://dwtq8vqfcyqxb" path="res://scenes/boss_monster.tscn" id="8_db4ny"]
+[ext_resource type="PackedScene" uid="uid://do3lybgg2ed64" path="res://scenes/arena.tscn" id="9_qipkc"]
+[ext_resource type="PackedScene" uid="uid://hb31ymywrq5w" path="res://scenes/dog_monster.tscn" id="10_b582c"]
+[ext_resource type="PackedScene" uid="uid://c6xtn86sydiqe" path="res://scenes/dziecko.tscn" id="11_ijcmx"]
+[ext_resource type="PackedScene" uid="uid://c2gxkfx88oon2" path="res://scenes/scythe.tscn" id="12_3hwat"]
+[ext_resource type="PackedScene" uid="uid://by4k4n4ccw5v2" path="res://scenes/tentacle_monster.tscn" id="13_p8yfb"]
+[ext_resource type="PackedScene" uid="uid://c728exa2uv1op" path="res://scenes/bulky.tscn" id="14_ewadf"]
+[ext_resource type="PackedScene" uid="uid://c2wqdwcuaenmn" path="res://scenes/wyfe.tscn" id="15_4lyi3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1nyfh"]
-shader = ExtResource("4_i52y1")
+shader = ExtResource("2_7rhe2")
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/width = 1.0
 shader_parameter/pattern = 0
@@ -20,39 +25,39 @@ shader_parameter/inside = false
 shader_parameter/add_margins = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cjduf"]
-atlas = ExtResource("5_a73fp")
+atlas = ExtResource("3_nho45")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2y54g"]
-atlas = ExtResource("5_a73fp")
+atlas = ExtResource("3_nho45")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_twnwk"]
-atlas = ExtResource("5_a73fp")
+atlas = ExtResource("3_nho45")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ufy42"]
-atlas = ExtResource("5_a73fp")
+atlas = ExtResource("3_nho45")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fabqk"]
-atlas = ExtResource("6_ug7rq")
+atlas = ExtResource("4_2yogq")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7fk7x"]
-atlas = ExtResource("6_ug7rq")
+atlas = ExtResource("4_2yogq")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dw486"]
-atlas = ExtResource("6_ug7rq")
+atlas = ExtResource("4_2yogq")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uq3v8"]
-atlas = ExtResource("6_ug7rq")
+atlas = ExtResource("4_2yogq")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ucvml"]
-atlas = ExtResource("6_ug7rq")
+atlas = ExtResource("4_2yogq")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gkwyb"]
@@ -107,7 +112,7 @@ colors = PackedColorArray(0, 0, 0, 0.713726, 0, 0, 0, 0)
 size = Vector2(10, 25)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1ayg1"]
-shader = ExtResource("8_pg5iv")
+shader = ExtResource("6_1c8ee")
 shader_parameter/resolution = Vector2(480, 480)
 shader_parameter/scan_line_amount = 0.022
 shader_parameter/warp_amount = 0.1
@@ -123,29 +128,29 @@ shader_parameter/roll_speed = 3.8e-07
 shader_parameter/scan_line_strength = -1.0
 shader_parameter/pixel_strength = 0.0
 
-[sub_resource type="Gradient" id="Gradient_5prov"]
+[sub_resource type="Gradient" id="Gradient_477n8"]
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_23vr0"]
-gradient = SubResource("Gradient_5prov")
+gradient = SubResource("Gradient_477n8")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_87rd3"]
-atlas = ExtResource("9_adye6")
+atlas = ExtResource("7_efqws")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yrt3g"]
-atlas = ExtResource("9_adye6")
+atlas = ExtResource("7_efqws")
 region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_70jut"]
-atlas = ExtResource("9_adye6")
+atlas = ExtResource("7_efqws")
 region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ukgdn"]
-atlas = ExtResource("9_adye6")
+atlas = ExtResource("7_efqws")
 region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uuhl6"]
-atlas = ExtResource("9_adye6")
+atlas = ExtResource("7_efqws")
 region = Rect2(256, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p2plq"]
@@ -178,39 +183,14 @@ radius = 29.0172
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cnn5h"]
-distance = -105.0
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iqegh"]
-distance = 26.0
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wk0ms"]
-distance = 4.0
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bkfw6"]
-distance = -283.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fljnn"]
-size = Vector2(65, 53)
-
-[node name="homeafter" type="Node2D"]
-script = ExtResource("1_xb7q7")
-
-[node name="background" type="Node2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="background"]
-position = Vector2(144, 81)
-texture = ExtResource("2_i2gox")
+[node name="Finale" type="Node2D"]
 
 [node name="Player" type="RigidBody2D" parent="." groups=["player"]]
-position = Vector2(52, 87)
+position = Vector2(16, 5)
 gravity_scale = 0.0
 lock_rotation = true
 linear_damp = 21.257
-script = ExtResource("3_jaj2u")
-movement_speed = 100.0
-can_attack = false
-can_dash = false
+script = ExtResource("1_xws6h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 material = SubResource("ShaderMaterial_1nyfh")
@@ -223,7 +203,7 @@ z_index = -1
 emitting = false
 amount = 50
 lifetime = 0.25
-texture = ExtResource("7_llxji")
+texture = ExtResource("5_ugh6b")
 gravity = Vector2(0, 0)
 color = Color(0, 0, 0, 1)
 color_ramp = SubResource("Gradient_aqy8v")
@@ -234,10 +214,10 @@ shape = SubResource("RectangleShape2D_vk0ce")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4, 4)
-limit_left = 0
-limit_top = 0
-limit_right = 288
-limit_bottom = 162
+limit_left = -400
+limit_top = -400
+limit_right = 400
+limit_bottom = 400
 
 [node name="Sprite2D" type="Sprite2D" parent="Player/Camera2D"]
 z_index = 5
@@ -278,33 +258,33 @@ scale_amount_max = 9.07
 scale_amount_curve = SubResource("Curve_ry0hx")
 color = Color(0, 0, 0, 1)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Boss Monster" parent="." instance=ExtResource("8_db4ny")]
+position = Vector2(-1, -227)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("WorldBoundaryShape2D_cnn5h")
+[node name="Arena" parent="." instance=ExtResource("9_qipkc")]
+position = Vector2(-14, -6)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-scale = Vector2(-1, -1)
-shape = SubResource("WorldBoundaryShape2D_iqegh")
+[node name="DogMonster" parent="." instance=ExtResource("10_b582c")]
+position = Vector2(206, -156)
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-rotation = 1.5708
-shape = SubResource("WorldBoundaryShape2D_wk0ms")
+[node name="DogMonster2" parent="." instance=ExtResource("10_b582c")]
+position = Vector2(257, -92)
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-rotation = -1.5708
-shape = SubResource("WorldBoundaryShape2D_bkfw6")
+[node name="DZIECKO" parent="." instance=ExtResource("11_ijcmx")]
+position = Vector2(0, 116)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Sword" parent="." instance=ExtResource("12_3hwat")]
+position = Vector2(-291, -91)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(33.5, 26.5)
-shape = SubResource("RectangleShape2D_fljnn")
+[node name="Tentacle Monster" parent="." instance=ExtResource("13_p8yfb")]
+position = Vector2(-201, 192)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-texture = ExtResource("4_faw7l")
+[node name="Bulky" parent="." instance=ExtResource("14_ewadf")]
+position = Vector2(233, 159)
+
+[node name="Wyfe" parent="." instance=ExtResource("15_4lyi3")]
+position = Vector2(-126, -84)
 
 [connection signal="animation_finished" from="Player/pivot/AnimatedSprite2D2" to="Player" method="_on_animated_sprite_2d_2_animation_finished"]
 [connection signal="body_entered" from="Player/pivot/AnimatedSprite2D2/Area2D" to="Player" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="die" from="Boss Monster" to="." method="_on_boss_monster_die"]
