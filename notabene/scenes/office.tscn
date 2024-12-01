@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://edg110s37vho"]
+[gd_scene load_steps=52 format=3 uid="uid://edg110s37vho"]
 
 [ext_resource type="Script" path="res://scripts/office.gd" id="1_7kbvs"]
 [ext_resource type="Texture2D" uid="uid://rgl42mi2tl7q" path="res://art/files/office.png" id="1_odvo3"]
@@ -194,6 +194,12 @@ animations = [{
 "speed": 1.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_heguv"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_th2xu"]
+gradient = SubResource("Gradient_heguv")
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_87rd3"]
 atlas = ExtResource("9_loi5h")
 region = Rect2(0, 0, 64, 64)
@@ -384,6 +390,13 @@ material = SubResource("ShaderMaterial_bj5fb")
 position = Vector2(125, -7)
 sprite_frames = SubResource("SpriteFrames_l3cgd")
 autoplay = "default"
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D/Player/Camera2D"]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+position = Vector2(2.99999, -5)
+scale = Vector2(1.46484, 191)
+texture = SubResource("GradientTexture1D_th2xu")
 
 [node name="pivot" type="Node2D" parent="Node2D/Player"]
 
