@@ -41,6 +41,7 @@ func _on_timer_timeout() -> void:
 	$AnimatedSprite2D.animation = "attack"
 	await get_tree().create_timer(0.5).timeout
 	if hp>0:
+		$AudioStreamPlayer2D.play()
 		var bullet_dir : PackedVector2Array = [Vector2(0,1), Vector2(0,-1), Vector2(1,0), Vector2(-1,0), Vector2(1,1), Vector2(-1,-1), Vector2(-1,1), Vector2(1,-1)]
 		if global_position.distance_to(player.global_position)<210:
 			for n in range(8):
