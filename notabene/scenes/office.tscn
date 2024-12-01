@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://edg110s37vho"]
+[gd_scene load_steps=57 format=3 uid="uid://edg110s37vho"]
 
 [ext_resource type="Script" path="res://scripts/office.gd" id="1_7kbvs"]
 [ext_resource type="Texture2D" uid="uid://rgl42mi2tl7q" path="res://art/files/office.png" id="1_odvo3"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://dpvadi14qdc25" path="res://art/files/cloud.png" id="12_uj4km"]
 [ext_resource type="AudioStream" uid="uid://cdlssve8my2c8" path="res://sounds/ear-ringing-sound-effect-26746.mp3" id="16_3mi4t"]
 [ext_resource type="AudioStream" uid="uid://0n5yjy41hj8s" path="res://sounds/office ambient.wav" id="17_kbqeu"]
+[ext_resource type="AudioStream" uid="uid://bxcuhic3ri552" path="res://sounds/Angry Man Sound Effect 4K.mp3" id="18_7m57c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sqb2p"]
 size = Vector2(91, 16)
@@ -460,6 +461,10 @@ volume_db = -20.0
 stream = ExtResource("17_kbqeu")
 volume_db = -19.765
 autoplay = true
+
+[node name="bossrage" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_7m57c")
+volume_db = 4.685
 
 [connection signal="body_entered" from="Node2D/AnimatedSprite2D2/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="animation_finished" from="Node2D/Player/pivot/AnimatedSprite2D2" to="Node2D/Player" method="_on_animated_sprite_2d_2_animation_finished"]

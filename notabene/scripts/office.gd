@@ -1,5 +1,6 @@
 extends Node2D
 @onready var ambient: AudioStreamPlayer = $ambient
+@onready var bossrage: AudioStreamPlayer = $bossrage
 
 var time =0
 var zoomin = false
@@ -23,6 +24,7 @@ func _physics_process(delta):
 			$Node2D/Player/Camera2D.zoom.x*=1.003
 			$Node2D/Player/Camera2D.zoom.y*=1.003
 		if $Node2D/Player/Camera2D.zoom.x>=16:
+			bossrage.stop()
 			ambient.stop()
 			$Earring.stop()
 			$Node2D/Player/Camera2D/Sprite2D2.modulate = Color(0,0,0,255)
@@ -31,7 +33,8 @@ func _physics_process(delta):
 
 func _on_timer_timeout():
 	time+=1
-
+func boss_rage():
+	bossrage.play()
 func camera_zoom():
 	zoomin = true
 	$Earring.play()
