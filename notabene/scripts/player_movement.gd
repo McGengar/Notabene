@@ -25,6 +25,7 @@ func random_offset():
 
 func take_dmg(amount):
 	camera_shake(10)
+	
 	if hp-amount<=0:
 		hp=0
 		$AnimatedSprite2D.visible=false
@@ -36,6 +37,8 @@ func take_dmg(amount):
 		get_tree().reload_current_scene()
 	else:
 		hp-=amount
+		$damaged.pitch_scale = randf_range(0.9,1.1)
+		$damaged.play()
 	
 
 

@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=4 uid="uid://do3lybgg2ed64"]
+[gd_scene load_steps=11 format=4 uid="uid://do3lybgg2ed64"]
 
+[ext_resource type="AudioStream" uid="uid://ccn4pvmf2xw1c" path="res://sounds/dark-atmospheric-ambience-247698.mp3" id="3_3dvjb"]
 [ext_resource type="Shader" path="res://shaders/wobbly.gdshader" id="3_c0gig"]
 [ext_resource type="Texture2D" uid="uid://bkvsohd80v3j0" path="res://art/files/bg_tile.png" id="4_tl7jm"]
 
@@ -74,3 +75,8 @@ shape = SubResource("WorldBoundaryShape2D_luif0")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_j76bt")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_3dvjb")
+autoplay = true
+parameters/looping = true

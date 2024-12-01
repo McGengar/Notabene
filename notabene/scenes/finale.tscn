@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cn1x2swm5l0no"]
+[gd_scene load_steps=41 format=3 uid="uid://cn1x2swm5l0no"]
 
 [ext_resource type="Script" path="res://scripts/player_finale.gd" id="1_xws6h"]
 [ext_resource type="Shader" path="res://shaders/outline.gdshader" id="2_7rhe2"]
@@ -8,6 +8,7 @@
 [ext_resource type="Shader" path="res://shaders/camera.gdshader" id="6_1c8ee"]
 [ext_resource type="Texture2D" uid="uid://6c346jrxj10k" path="res://art/files/slash_sprite_sheet.png" id="7_efqws"]
 [ext_resource type="PackedScene" uid="uid://dwtq8vqfcyqxb" path="res://scenes/boss_monster.tscn" id="8_db4ny"]
+[ext_resource type="AudioStream" uid="uid://by8lpgc1vtypc" path="res://sounds/male_hurt7-48124.mp3" id="8_ft00b"]
 [ext_resource type="PackedScene" uid="uid://do3lybgg2ed64" path="res://scenes/arena.tscn" id="9_qipkc"]
 [ext_resource type="PackedScene" uid="uid://hb31ymywrq5w" path="res://scenes/dog_monster.tscn" id="10_b582c"]
 [ext_resource type="PackedScene" uid="uid://c6xtn86sydiqe" path="res://scenes/dziecko.tscn" id="11_ijcmx"]
@@ -260,6 +261,10 @@ linear_accel_max = 46.77
 scale_amount_max = 9.07
 scale_amount_curve = SubResource("Curve_ry0hx")
 color = Color(0, 0, 0, 1)
+
+[node name="damaged" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("8_ft00b")
+volume_db = -7.2
 
 [node name="Boss Monster" parent="." instance=ExtResource("8_db4ny")]
 position = Vector2(-1, -227)

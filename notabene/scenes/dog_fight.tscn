@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bjadsva6xrkri"]
+[gd_scene load_steps=37 format=3 uid="uid://bjadsva6xrkri"]
 
 [ext_resource type="Script" path="res://scripts/dog_fight.gd" id="1_offyd"]
 [ext_resource type="PackedScene" uid="uid://hb31ymywrq5w" path="res://scenes/dog_monster.tscn" id="2_ws62m"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://6c346jrxj10k" path="res://art/files/slash_sprite_sheet.png" id="8_rfw3q"]
 [ext_resource type="PackedScene" uid="uid://do3lybgg2ed64" path="res://scenes/arena.tscn" id="9_c34mh"]
 [ext_resource type="AudioStream" uid="uid://dbxpt0uh2jjsf" path="res://sounds/swing-whoosh-weapon-1-189819.mp3" id="10_nrqu8"]
+[ext_resource type="AudioStream" uid="uid://by8lpgc1vtypc" path="res://sounds/male_hurt7-48124.mp3" id="11_tnbrd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vh3wa"]
 shader = ExtResource("3_ey6og")
@@ -263,6 +264,10 @@ color = Color(0, 0, 0, 1)
 
 [node name="Slash" type="AudioStreamPlayer2D" parent="Player"]
 stream = ExtResource("10_nrqu8")
+
+[node name="damaged" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("11_tnbrd")
+volume_db = -7.2
 
 [node name="Arena" parent="." instance=ExtResource("9_c34mh")]
 position = Vector2(-14, -6)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://ova5ui17iuoh"]
+[gd_scene load_steps=38 format=3 uid="uid://ova5ui17iuoh"]
 
 [ext_resource type="Script" path="res://scripts/wyfe_fight.gd" id="1_frt77"]
 [ext_resource type="Script" path="res://scripts/player_movement.gd" id="3_s72d2"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://6c346jrxj10k" path="res://art/files/slash_sprite_sheet.png" id="9_0w1pb"]
 [ext_resource type="PackedScene" uid="uid://do3lybgg2ed64" path="res://scenes/arena.tscn" id="10_7aprr"]
 [ext_resource type="AudioStream" uid="uid://dbxpt0uh2jjsf" path="res://sounds/swing-whoosh-weapon-1-189819.mp3" id="11_7muty"]
+[ext_resource type="AudioStream" uid="uid://by8lpgc1vtypc" path="res://sounds/male_hurt7-48124.mp3" id="12_sfwtc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5m45l"]
 shader = ExtResource("4_wvtjc")
@@ -265,6 +266,10 @@ color = Color(0, 0, 0, 1)
 
 [node name="Slash" type="AudioStreamPlayer2D" parent="Player"]
 stream = ExtResource("11_7muty")
+
+[node name="damaged" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("12_sfwtc")
+volume_db = -7.2
 
 [node name="Arena" parent="." instance=ExtResource("10_7aprr")]
 position = Vector2(-14, -6)

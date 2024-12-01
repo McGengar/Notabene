@@ -25,6 +25,8 @@ func random_offset():
 
 func take_dmg(amount):
 	camera_shake(10)
+	if hp>0:
+		$damaged.play()
 	if hp<=0:
 		hp=0
 		$AnimatedSprite2D.visible=false
