@@ -25,12 +25,15 @@ func _physics_process(delta: float) -> void:
 	if shake_str>0:
 		shake_str = lerpf(shake_str,0,shake_fade*delta)
 		$Camera2D.offset=random_offset()
+	if time==7:
+		$Earring.play()
 	if time>7:
 		if 	$Camera2D.zoom.x<8:
 			
 			$Camera2D.zoom.x*=1.001
 			$Camera2D.zoom.y*=1.001
 		else:
+			$Earring.stop()
 			audio_stream_player.stop()
 			metro.stop()
 			baby.stop()

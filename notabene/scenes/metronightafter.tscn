@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://db8qcltjqsrs5"]
+[gd_scene load_steps=15 format=3 uid="uid://dkjarqafr15sw"]
 
 [ext_resource type="Script" path="res://scripts/metronightafter.gd" id="1_jax30"]
 [ext_resource type="Texture2D" uid="uid://c6xfvhjmnq4oo" path="res://art/files/metro_night.png" id="2_6qa1e"]

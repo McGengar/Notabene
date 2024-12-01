@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dd1rk21tqxhri"]
+[gd_scene load_steps=30 format=3 uid="uid://dd1rk21tqxhri"]
 
 [ext_resource type="Texture2D" uid="uid://c6xfvhjmnq4oo" path="res://art/files/metro_night.png" id="1_5uvxc"]
 [ext_resource type="Script" path="res://scripts/metronight.gd" id="1_gwqsw"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://b2kbvgy21tuq8" path="res://sounds/metro.wav" id="9_5cjl0"]
 [ext_resource type="AudioStream" uid="uid://c4nnvflsgxmkc" path="res://sounds/angry baby.mp3" id="10_a8lqu"]
 [ext_resource type="AudioStream" uid="uid://c8jxjjkyv1qkd" path="res://sounds/Argument DiscussionDispute - Sound Effect for editing.mp3" id="11_0f8ft"]
+[ext_resource type="AudioStream" uid="uid://cdlssve8my2c8" path="res://sounds/ear-ringing-sound-effect-26746.mp3" id="12_2wrjy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_01jje"]
 shader = ExtResource("2_rmve6")
@@ -198,5 +199,9 @@ volume_db = -8.432
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_0f8ft")
 autoplay = true
+
+[node name="Earring" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_2wrjy")
+volume_db = -12.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

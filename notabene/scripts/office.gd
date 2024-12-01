@@ -22,6 +22,7 @@ func _physics_process(delta):
 			$Node2D/Player/Camera2D.zoom.x*=1.003
 			$Node2D/Player/Camera2D.zoom.y*=1.003
 		if $Node2D/Player/Camera2D.zoom.x>=16:
+			$Earring.stop()
 			$Node2D/Player/Camera2D/Sprite2D2.modulate = Color(0,0,0,255)
 			await get_tree().create_timer(1).timeout
 			get_tree().change_scene_to_packed(load("res://scenes/boss_fight.tscn"))
@@ -31,6 +32,7 @@ func _on_timer_timeout():
 
 func camera_zoom():
 	zoomin = true
+	$Earring.play()
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):

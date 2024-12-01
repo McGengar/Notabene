@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://mloo4qrwioed"]
+[gd_scene load_steps=40 format=3 uid="uid://dalrcfov52ep1"]
 
 [ext_resource type="Script" path="res://scripts/room_after.gd" id="1_f7o8v"]
 [ext_resource type="Texture2D" uid="uid://cbdeuuxyd0s2k" path="res://art/files/room_after.png" id="2_54sl5"]

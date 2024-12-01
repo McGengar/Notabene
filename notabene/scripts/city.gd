@@ -19,12 +19,15 @@ func _physics_process(delta):
 		$Dogs/Dog2.position.x-=1
 	if flag == true and has_barked == false:
 		bark()
+	if time ==6:
+		$Earring.play()
 	if time > 6:
 		if 	$Node2D/Player/Camera2D.zoom.x<16:
 			$Node2D/Player/Camera2D.zoom.x*=1.003
 			$Node2D/Player/Camera2D.zoom.y*=1.003
 			$Node2D/Player.camera_shake(0.5)
 		else:
+			$Earring.play()
 			dog_bark.stop()
 			$Node2D/Player/Camera2D/Sprite2D2.visible=true
 			$Node2D/Player/Camera2D/Sprite2D2.modulate = Color(0,0,0,255)

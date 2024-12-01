@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://cthi7kaq873d1"]
+[gd_scene load_steps=50 format=3 uid="uid://cthi7kaq873d1"]
 
 [ext_resource type="Texture2D" uid="uid://blelw68kl7yja" path="res://art/files/city.png" id="1_gajv6"]
 [ext_resource type="Script" path="res://scripts/city.gd" id="1_kmlt3"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://brlbwbiqne06r" path="res://art/files/dog_sprite.png" id="9_8aufq"]
 [ext_resource type="AudioStream" uid="uid://0ky8x0fhyla7" path="res://sounds/dog ambient.wav" id="11_7h2u0"]
 [ext_resource type="AudioStream" uid="uid://ccxohuhhkj707" path="res://sounds/dog bark.wav" id="12_yxo1q"]
+[ext_resource type="AudioStream" uid="uid://cdlssve8my2c8" path="res://sounds/ear-ringing-sound-effect-26746.mp3" id="13_pjgrv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1nyfh"]
 shader = ExtResource("3_njagd")
@@ -381,6 +382,10 @@ autoplay = true
 
 [node name="dog bark" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_yxo1q")
+
+[node name="Earring" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_pjgrv")
+volume_db = -20.0
 
 [connection signal="animation_finished" from="Node2D/Player/pivot/AnimatedSprite2D2" to="Node2D/Player" method="_on_animated_sprite_2d_2_animation_finished"]
 [connection signal="body_entered" from="Node2D/Player/pivot/AnimatedSprite2D2/Area2D" to="Node2D/Player" method="_on_area_2d_body_entered"]

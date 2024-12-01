@@ -14,6 +14,7 @@ func _process(delta):
 			$Node2D/Player/Camera2D.zoom.x*=1.003
 			$Node2D/Player/Camera2D.zoom.y*=1.003
 		if $Node2D/Player/Camera2D.zoom.x>=16:
+			$Earring.stop()
 			$Node2D/Player/Camera2D/Sprite2D2.modulate = Color(0,0,0,255)
 			await get_tree().create_timer(1).timeout
 			get_tree().change_scene_to_packed(load("res://scenes/finale.tscn"))
@@ -24,4 +25,5 @@ func _on_area_2d_body_entered(body):
 		$Node2D/Player.can_move=false
 		$Node2D/Player/AnimatedSprite2D.animation="stand"
 		await get_tree().create_timer(2).timeout
+		$Earring.play()
 		zoomin = true

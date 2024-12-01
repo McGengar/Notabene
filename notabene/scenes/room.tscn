@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://kkf8sro3pbrl"]
+[gd_scene load_steps=41 format=3 uid="uid://kkf8sro3pbrl"]
 
 [ext_resource type="Script" path="res://scripts/room.gd" id="1_xbsud"]
 [ext_resource type="Texture2D" uid="uid://cni2yn4oqptev" path="res://art/files/room.png" id="2_ps7da"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cbj2i0jwgfgcf" path="res://art/files/player_spirte1.png" id="7_4hh70"]
 [ext_resource type="Texture2D" uid="uid://6c346jrxj10k" path="res://art/files/slash_sprite_sheet.png" id="8_tgyx3"]
 [ext_resource type="Shader" path="res://shaders/camera.gdshader" id="9_f7lkp"]
+[ext_resource type="AudioStream" uid="uid://cdlssve8my2c8" path="res://sounds/ear-ringing-sound-effect-26746.mp3" id="10_8dho2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1nyfh"]
 shader = ExtResource("4_iw6mp")
@@ -301,6 +302,10 @@ autostart = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(246, 74)
 shape = SubResource("RectangleShape2D_qbhlg")
+
+[node name="Earring" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_8dho2")
+volume_db = -20.0
 
 [connection signal="animation_finished" from="Node2D/Player/pivot/AnimatedSprite2D2" to="Node2D/Player" method="_on_animated_sprite_2d_2_animation_finished"]
 [connection signal="body_entered" from="Node2D/Player/pivot/AnimatedSprite2D2/Area2D" to="Node2D/Player" method="_on_area_2d_body_entered"]

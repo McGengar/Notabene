@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://edg110s37vho"]
+[gd_scene load_steps=55 format=3 uid="uid://edg110s37vho"]
 
 [ext_resource type="Script" path="res://scripts/office.gd" id="1_7kbvs"]
 [ext_resource type="Texture2D" uid="uid://rgl42mi2tl7q" path="res://art/files/office.png" id="1_odvo3"]
@@ -15,6 +15,7 @@
 [ext_resource type="Shader" path="res://shaders/camera.gdshader" id="8_la1gj"]
 [ext_resource type="Texture2D" uid="uid://6c346jrxj10k" path="res://art/files/slash_sprite_sheet.png" id="9_loi5h"]
 [ext_resource type="Texture2D" uid="uid://dpvadi14qdc25" path="res://art/files/cloud.png" id="12_uj4km"]
+[ext_resource type="AudioStream" uid="uid://cdlssve8my2c8" path="res://sounds/ear-ringing-sound-effect-26746.mp3" id="16_3mi4t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sqb2p"]
 size = Vector2(91, 16)
@@ -449,6 +450,10 @@ shape = SubResource("WorldBoundaryShape2D_snmbt")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="Earring" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_3mi4t")
+volume_db = -20.0
 
 [connection signal="body_entered" from="Node2D/AnimatedSprite2D2/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="animation_finished" from="Node2D/Player/pivot/AnimatedSprite2D2" to="Node2D/Player" method="_on_animated_sprite_2d_2_animation_finished"]
