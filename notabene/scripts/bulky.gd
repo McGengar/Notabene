@@ -34,6 +34,7 @@ func attack():
 	$AnimatedSprite2D.animation="attack"
 	$AnimatedSprite2D.play()
 	await get_tree().create_timer(1).timeout
+	$AudioStreamPlayer2D.play()
 	$shockwave.monitoring = true
 	$shockwave/CPUParticles2D.emitting =true
 	$shockwave/CPUParticles2D2.emitting =true
