@@ -6,7 +6,6 @@ var zoomin = false
 func _ready():
 	$Node2D/Player.can_move =false
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if time>1 and zoomin==false:
