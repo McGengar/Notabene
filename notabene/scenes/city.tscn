@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://cthi7kaq873d1"]
+[gd_scene load_steps=49 format=3 uid="uid://cthi7kaq873d1"]
 
 [ext_resource type="Texture2D" uid="uid://blelw68kl7yja" path="res://art/files/city.png" id="1_gajv6"]
 [ext_resource type="Script" path="res://scripts/city.gd" id="1_kmlt3"]
@@ -10,6 +10,8 @@
 [ext_resource type="Shader" path="res://shaders/camera.gdshader" id="7_uaori"]
 [ext_resource type="Texture2D" uid="uid://6c346jrxj10k" path="res://art/files/slash_sprite_sheet.png" id="8_ua0re"]
 [ext_resource type="Texture2D" uid="uid://brlbwbiqne06r" path="res://art/files/dog_sprite.png" id="9_8aufq"]
+[ext_resource type="AudioStream" uid="uid://0ky8x0fhyla7" path="res://sounds/dog ambient.wav" id="11_7h2u0"]
+[ext_resource type="AudioStream" uid="uid://ccxohuhhkj707" path="res://sounds/dog bark.wav" id="12_yxo1q"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1nyfh"]
 shader = ExtResource("3_njagd")
@@ -181,7 +183,7 @@ animations = [{
 radius = 29.0172
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d00dx"]
-distance = -161.0
+distance = -113.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_42y3d"]
 distance = 51.0
@@ -371,6 +373,14 @@ shape = SubResource("RectangleShape2D_sy4kb")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="dogambient" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_7h2u0")
+pitch_scale = 0.71
+autoplay = true
+
+[node name="dog bark" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_yxo1q")
 
 [connection signal="animation_finished" from="Node2D/Player/pivot/AnimatedSprite2D2" to="Node2D/Player" method="_on_animated_sprite_2d_2_animation_finished"]
 [connection signal="body_entered" from="Node2D/Player/pivot/AnimatedSprite2D2/Area2D" to="Node2D/Player" method="_on_area_2d_body_entered"]
