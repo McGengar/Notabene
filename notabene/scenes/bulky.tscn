@@ -110,7 +110,7 @@ gravity = Vector2(0, 0)
 scale_amount_min = 0.0
 scale_amount_max = 2.0
 scale_amount_curve = SubResource("Curve_e81is")
-color = Color(0.0923971, 0.0923971, 0.0923971, 1)
+color = Color(1, 0.0941176, 0.0941176, 1)
 
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="shockwave"]
 emitting = false
@@ -122,7 +122,7 @@ emission_sphere_radius = 80.0
 gravity = Vector2(0, -50)
 scale_amount_max = 6.0
 scale_amount_curve = SubResource("Curve_e81is")
-color = Color(0.0923971, 0.0923971, 0.0923971, 1)
+color = Color(1, 0.0941176, 0.0941176, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="shockwave"]
 shape = SubResource("CircleShape2D_ldsif")

@@ -45,4 +45,4 @@ func _on_area_2d_body_entered(body: RigidBody2D) -> void:
 
 func _on_shockwave_body_entered(body):
 	if body.is_in_group("player"):
-		body.take_dmg(70)
+		body.take_dmg(50)

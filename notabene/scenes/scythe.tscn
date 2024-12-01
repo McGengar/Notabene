@@ -1,7 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://c2gxkfx88oon2"]
+[gd_scene load_steps=8 format=3 uid="uid://c2gxkfx88oon2"]
 
 [ext_resource type="Script" path="res://scripts/scythe.gd" id="1_1mdg0"]
+[ext_resource type="Shader" path="res://shaders/outline.gdshader" id="2_q8eem"]
 [ext_resource type="Texture2D" uid="uid://buj400oh4ue6y" path="res://art/files/scythe.png" id="2_twtfl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rk5or"]
+shader = ExtResource("2_q8eem")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mekpo"]
 atlas = ExtResource("2_twtfl")
@@ -19,25 +28,30 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cmk4b"]
-size = Vector2(74, 11)
+size = Vector2(15.3333, 4)
 
 [node name="Sword" type="RigidBody2D"]
+scale = Vector2(0.75, 0.75)
 gravity_scale = 0.0
+linear_damp = 0.5
 script = ExtResource("1_1mdg0")
+movement_speed = 10
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_rk5or")
 position = Vector2(6, -1)
 scale = Vector2(1, 0.98955)
 sprite_frames = SubResource("SpriteFrames_t2oq7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(7, -4.5)
+position = Vector2(7, -2)
 shape = SubResource("RectangleShape2D_cmk4b")
+disabled = true
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(7, -4.5)
+position = Vector2(42.3333, -1.33333)
 shape = SubResource("RectangleShape2D_cmk4b")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

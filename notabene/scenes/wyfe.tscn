@@ -1,8 +1,17 @@
-[gd_scene load_steps=14 format=3 uid="uid://c2wqdwcuaenmn"]
+[gd_scene load_steps=16 format=3 uid="uid://c2wqdwcuaenmn"]
 
 [ext_resource type="Script" path="res://scripts/wyfe.gd" id="1_bxoi3"]
+[ext_resource type="Shader" path="res://shaders/outline.gdshader" id="2_i4fq3"]
 [ext_resource type="Texture2D" uid="uid://dlpb7v3eqkrli" path="res://art/files/wyfe_sprite_sheet.png" id="2_n0lsw"]
 [ext_resource type="Texture2D" uid="uid://gqmaly4ef3nh" path="res://art/files/wyfe.png" id="2_obkm3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d4oac"]
+shader = ExtResource("2_i4fq3")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1hbkc"]
 atlas = ExtResource("2_n0lsw")
@@ -83,6 +92,7 @@ linear_damp = 20.0
 script = ExtResource("1_bxoi3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_d4oac")
 sprite_frames = SubResource("SpriteFrames_ae8uo")
 animation = &"spell"
 frame = 6

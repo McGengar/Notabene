@@ -23,8 +23,6 @@ radius = 13.0384
 
 [node name="RigidBody2D" type="RigidBody2D"]
 script = ExtResource("1_hji5j")
-movement_speed = null
-player_direction = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -2)

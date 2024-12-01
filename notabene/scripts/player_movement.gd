@@ -91,10 +91,10 @@ func _physics_process(delta):
 		apply_central_force(character_direction*dash_strength*1000*delta)
 		await get_tree().create_timer(0.1).timeout
 		$AnimatedSprite2D/CPUParticles2D.emitting = false
-		await get_tree().create_timer(0.1,5).timeout
+		await get_tree().create_timer(0.3).timeout
 		collision_mask = 1
 		collision_layer = 1
-		await get_tree().create_timer(0.2,5).timeout
+		await get_tree().create_timer(0.1).timeout
 		can_dash = true
 		
 		
