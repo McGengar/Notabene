@@ -1,0 +1,94 @@
+[gd_scene load_steps=16 format=3 uid="uid://v4y5auluu1o3"]
+
+[ext_resource type="Shader" path="res://shaders/camera.gdshader" id="1_04okh"]
+[ext_resource type="Texture2D" uid="uid://dcufofg40a2mt" path="res://art/files/titlescreen.png" id="2_sk2jp"]
+[ext_resource type="Texture2D" uid="uid://c2lovnnol5mhh" path="res://art/files/button_base_start.png" id="3_jndgm"]
+[ext_resource type="Texture2D" uid="uid://cc5l85rub83t7" path="res://art/files/button_press_export.png" id="4_eh8i8"]
+[ext_resource type="Texture2D" uid="uid://cll40pk30xnd2" path="res://art/files/button_hover-start.png" id="5_m7el8"]
+[ext_resource type="Script" path="res://scripts/startbutton.gd" id="6_385cu"]
+[ext_resource type="Texture2D" uid="uid://c0xv3ipqtcp6p" path="res://art/files/button_exitbase.png" id="6_ted8o"]
+[ext_resource type="Texture2D" uid="uid://dcu2a5sctwc42" path="res://art/files/button_exithover.png" id="7_h005c"]
+[ext_resource type="Script" path="res://scripts/exitbutton.gd" id="9_cdc5i"]
+[ext_resource type="Texture2D" uid="uid://mtn2nupvi47n" path="res://art/files/credtis.png" id="10_dtuh4"]
+
+[sub_resource type="Gradient" id="Gradient_wiwj4"]
+offsets = PackedFloat32Array(0.987952, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_svurw"]
+gradient = SubResource("Gradient_wiwj4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_24fos"]
+shader = ExtResource("1_04okh")
+shader_parameter/resolution = Vector2(320, 180)
+shader_parameter/scan_line_amount = 1.0
+shader_parameter/warp_amount = 2.066
+shader_parameter/noise_amount = 0.134
+shader_parameter/interference_amount = 0.426
+shader_parameter/grille_amount = 0.621
+shader_parameter/grille_size = 1.0
+shader_parameter/vignette_amount = 0.783
+shader_parameter/vignette_intensity = 0.445
+shader_parameter/aberation_amount = 0.5
+shader_parameter/roll_line_amount = 0.3
+shader_parameter/roll_speed = 1.258
+shader_parameter/scan_line_strength = -4.787
+shader_parameter/pixel_strength = -2.045
+
+[sub_resource type="Gradient" id="Gradient_477n8"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8sdxf"]
+gradient = SubResource("Gradient_477n8")
+
+[node name="MENU" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Camera2D"]
+z_index = 1
+position = Vector2(2.99999, -5)
+scale = Vector2(1.46484, 191)
+texture = SubResource("GradientTexture1D_svurw")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D"]
+z_index = 5
+material = SubResource("ShaderMaterial_24fos")
+position = Vector2(-2.50001, -1)
+scale = Vector2(327, 194)
+texture = SubResource("GradientTexture1D_8sdxf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(-2, -24.375)
+scale = Vector2(2.32292, 1.76172)
+texture = ExtResource("2_sk2jp")
+
+[node name="start_button" type="TextureButton" parent="."]
+z_index = 1
+offset_left = -16.0
+offset_top = 18.0
+offset_right = 24.0
+offset_bottom = 58.0
+texture_normal = ExtResource("3_jndgm")
+texture_pressed = ExtResource("4_eh8i8")
+texture_hover = ExtResource("5_m7el8")
+script = ExtResource("6_385cu")
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+z_index = 1
+offset_left = -16.0
+offset_top = 43.0
+offset_right = 24.0
+offset_bottom = 83.0
+texture_normal = ExtResource("6_ted8o")
+texture_pressed = ExtResource("4_eh8i8")
+texture_hover = ExtResource("7_h005c")
+script = ExtResource("9_cdc5i")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(-77, 46)
+texture = ExtResource("10_dtuh4")
+
+[connection signal="pressed" from="start_button" to="start_button" method="_on_pressed"]
+[connection signal="pressed" from="TextureButton2" to="start_button" method="_on_texture_button_2_pressed"]
