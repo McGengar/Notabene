@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dd1rk21tqxhri"]
+[gd_scene load_steps=28 format=3 uid="uid://dd1rk21tqxhri"]
 
 [ext_resource type="Texture2D" uid="uid://c6xfvhjmnq4oo" path="res://art/files/metro_night.png" id="1_5uvxc"]
 [ext_resource type="Script" path="res://scripts/metronight.gd" id="1_gwqsw"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://c5fh64mmriyoq" path="res://art/files/woman_sprite_sheet.png" id="5_tiugn"]
 [ext_resource type="Texture2D" uid="uid://dsjvqrmxjxibc" path="res://art/files/trolley.png" id="6_ktoso"]
 [ext_resource type="Shader" path="res://shaders/camera.gdshader" id="8_xo7ce"]
+[ext_resource type="AudioStream" uid="uid://b2kbvgy21tuq8" path="res://sounds/metro.wav" id="9_5cjl0"]
+[ext_resource type="AudioStream" uid="uid://c4nnvflsgxmkc" path="res://sounds/angry baby.mp3" id="10_a8lqu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_01jje"]
 shader = ExtResource("2_rmve6")
@@ -182,5 +184,12 @@ z_index = 1
 position = Vector2(2.99999, -5)
 scale = Vector2(1.46484, 191)
 texture = SubResource("GradientTexture1D_bsl6a")
+
+[node name="metro" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_5cjl0")
+autoplay = true
+
+[node name="baby" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_a8lqu")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

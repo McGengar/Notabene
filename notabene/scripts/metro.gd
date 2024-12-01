@@ -4,6 +4,8 @@ var r_str = 5.0
 var shake_fade = 5.0
 var rng = RandomNumberGenerator.new()
 var shake_str = 0
+@onready var metro: AudioStreamPlayer = $metro
+@onready var convo: AudioStreamPlayer = $convo
 
 var time=0
 
@@ -38,6 +40,8 @@ func _physics_process(delta):
 			$Camera2D.zoom.x*=1.0007
 			$Camera2D.zoom.y*=1.0007
 		else:
+			metro.stop()
+			convo.stop()
 			$Camera2D/Sprite2D2.modulate = Color(0,0,0,255)
 			await get_tree().create_timer(1).timeout
 			get_tree().change_scene_to_packed(load("res://scenes/office.tscn"))
