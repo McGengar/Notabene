@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://v4y5auluu1o3"]
+[gd_scene load_steps=17 format=3 uid="uid://v4y5auluu1o3"]
 
 [ext_resource type="Shader" path="res://shaders/camera.gdshader" id="1_04okh"]
 [ext_resource type="Texture2D" uid="uid://dcufofg40a2mt" path="res://art/files/titlescreen.png" id="2_sk2jp"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dcu2a5sctwc42" path="res://art/files/button_exithover.png" id="7_h005c"]
 [ext_resource type="Script" path="res://scripts/exitbutton.gd" id="9_cdc5i"]
 [ext_resource type="Texture2D" uid="uid://mtn2nupvi47n" path="res://art/files/credtis.png" id="10_dtuh4"]
+[ext_resource type="AudioStream" uid="uid://d5txbfpgvp7b" path="res://sounds/78074__joedeshon__tv_static_from-wtic_in_1957.wav" id="11_x8b0b"]
 
 [sub_resource type="Gradient" id="Gradient_wiwj4"]
 offsets = PackedFloat32Array(0.987952, 1)
@@ -89,6 +90,11 @@ script = ExtResource("9_cdc5i")
 z_index = 1
 position = Vector2(-77, 46)
 texture = ExtResource("10_dtuh4")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_x8b0b")
+volume_db = -33.73
+autoplay = true
 
 [connection signal="pressed" from="start_button" to="start_button" method="_on_pressed"]
 [connection signal="pressed" from="TextureButton2" to="start_button" method="_on_texture_button_2_pressed"]
