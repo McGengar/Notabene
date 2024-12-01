@@ -75,6 +75,8 @@ func _physics_process(delta):
 		$pivot/AnimatedSprite2D2.visible= true
 		$AnimatedSprite2D.animation = "attack"
 		$pivot/AnimatedSprite2D2.play()
+		$Slash.pitch_scale = randf_range(0.9,1.1)
+		$Slash.play()
 		await get_tree().create_timer(0.25).timeout
 		$AnimatedSprite2D.flip_h = false
 		$pivot/AnimatedSprite2D2/Area2D.monitoring = false

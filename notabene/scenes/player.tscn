@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://btdsg11tmwjld"]
+[gd_scene load_steps=33 format=3 uid="uid://btdsg11tmwjld"]
 
 [ext_resource type="Script" path="res://scripts/player_movement.gd" id="1_qg4h0"]
 [ext_resource type="Shader" path="res://shaders/outline.gdshader" id="2_braja"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dq0mkuu6aa2yo" path="res://art/files/player_attack_right.png" id="3_ngh2n"]
 [ext_resource type="Texture2D" uid="uid://6c346jrxj10k" path="res://art/files/slash_sprite_sheet.png" id="5_iafcn"]
 [ext_resource type="Shader" path="res://shaders/camera.gdshader" id="5_p1si7"]
+[ext_resource type="AudioStream" uid="uid://dbxpt0uh2jjsf" path="res://sounds/swing-whoosh-weapon-1-189819.mp3" id="8_7ru21"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1nyfh"]
 shader = ExtResource("2_braja")
@@ -227,6 +228,9 @@ monitoring = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pivot/AnimatedSprite2D2/Area2D"]
 position = Vector2(12, -1)
 shape = SubResource("CircleShape2D_kmgw7")
+
+[node name="Slash" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_7ru21")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 emitting = false
