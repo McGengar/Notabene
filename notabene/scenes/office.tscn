@@ -1,10 +1,12 @@
-[gd_scene load_steps=52 format=3 uid="uid://edg110s37vho"]
+[gd_scene load_steps=54 format=3 uid="uid://edg110s37vho"]
 
 [ext_resource type="Script" path="res://scripts/office.gd" id="1_7kbvs"]
 [ext_resource type="Texture2D" uid="uid://rgl42mi2tl7q" path="res://art/files/office.png" id="1_odvo3"]
 [ext_resource type="PackedScene" uid="uid://dv8hexywjobbt" path="res://scenes/desk.tscn" id="2_ksg8e"]
+[ext_resource type="Texture2D" uid="uid://rcywu2ni54js" path="res://art/files/poster.png" id="3_0p26d"]
 [ext_resource type="Script" path="res://scripts/player_movement.gd" id="3_a40r7"]
 [ext_resource type="Texture2D" uid="uid://78ckeqn2ysna" path="res://art/files/desk.png" id="3_mbuao"]
+[ext_resource type="Texture2D" uid="uid://dsy4yyxcdukua" path="res://art/files/poste2r.png" id="4_4ccg6"]
 [ext_resource type="Shader" path="res://shaders/outline.gdshader" id="4_nwllr"]
 [ext_resource type="Texture2D" uid="uid://dq0mkuu6aa2yo" path="res://art/files/player_attack_right.png" id="5_s3aev"]
 [ext_resource type="Texture2D" uid="uid://duvylkbvl0ifg" path="res://art/files/player_spirte_sheet.png" id="6_55ecx"]
@@ -271,6 +273,18 @@ texture = ExtResource("1_odvo3")
 [node name="Sprite2D2" type="Sprite2D" parent="background"]
 position = Vector2(432, 81)
 texture = ExtResource("1_odvo3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.775063, 0.775063, 0.775063, 1)
+position = Vector2(120, 17)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0p26d")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(0.775063, 0.775063, 0.775063, 1)
+position = Vector2(504.04, 17)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_4ccg6")
 
 [node name="Node2D" type="Node2D" parent="."]
 y_sort_enabled = true
