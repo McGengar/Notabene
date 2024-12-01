@@ -1,7 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://i0rqglr4u8cp"]
+[gd_scene load_steps=8 format=3 uid="uid://crdf8l88vsvxv"]
 
 [ext_resource type="Script" path="res://scripts/bullet.gd" id="1_7rwjl"]
 [ext_resource type="Texture2D" uid="uid://ctdegb6jtwf2l" path="res://art/files/scream.png" id="2_fh4v4"]
+[ext_resource type="Shader" path="res://shaders/outline.gdshader" id="2_rqmrk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6x2af"]
+shader = ExtResource("2_rqmrk")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6lgbq"]
 atlas = ExtResource("2_fh4v4")
@@ -27,6 +36,7 @@ linear_damp = -1.0
 script = ExtResource("1_7rwjl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_6x2af")
 position = Vector2(2, -2)
 sprite_frames = SubResource("SpriteFrames_bbske")
 
