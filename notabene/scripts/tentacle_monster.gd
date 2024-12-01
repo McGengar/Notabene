@@ -9,6 +9,9 @@ var direction : Vector2
 var is_attacking = false
 @onready var atak_area: Area2D = $pivot/AreaAtak
 @onready var pivot: Node2D = $pivot
+
+signal die
+
 func _ready() -> void:
 	atak_area.monitoring = false
 	pivot.visible = false
@@ -19,6 +22,7 @@ func dealt_dmg(amount):
 	hp-=amount
 	$CPUParticles2D.emitting= true
 	if hp<=0:
+		emit_signal("die")
 		$AnimatedSprite2D.visible=false
 		collision_layer = 0
 		collision_mask = 0

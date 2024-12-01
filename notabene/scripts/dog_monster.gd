@@ -6,12 +6,14 @@ var dashes = 0
 var direction : Vector2
 @export var time = 0
 
+signal die
 
 @onready var player = get_node("../Player")
 
 func dealt_dmg(amount):
 	hp-=amount
 	if hp<=0:
+		emit_signal("die")
 		$CPUParticles2D.emitting= true
 		$AnimatedSprite2D.visible=false
 		collision_layer = 0

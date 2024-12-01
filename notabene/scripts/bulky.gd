@@ -4,13 +4,14 @@ extends RigidBody2D
 @export var hp = 100
 var direction : Vector2
 var is_attacking = false
-
+signal die
 @onready var player = get_node("../Player")
 
 func dealt_dmg(amount):
 	hp-=amount
 	$CPUParticles2D.emitting= true
 	if hp<=0:
+		emit_signal("die")
 		collision_layer = 0
 		collision_mask = 0
 		await get_tree().create_timer(0.5).timeout
