@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://bik34nwdtnwdi"]
+
+[ext_resource type="Script" path="res://scripts/wyfebullet.gd" id="1_hji5j"]
+[ext_resource type="Texture2D" uid="uid://dhu1pyuc35jvg" path="res://art/files/wyfebullet.png" id="1_ndtyp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqvon"]
+atlas = ExtResource("1_ndtyp")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ece4m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqvon")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ae6tl"]
+radius = 13.0384
+
+[node name="RigidBody2D" type="RigidBody2D"]
+script = ExtResource("1_hji5j")
+movement_speed = null
+player_direction = null
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, -2)
+sprite_frames = SubResource("SpriteFrames_ece4m")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ae6tl")

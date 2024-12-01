@@ -1,0 +1,40 @@
+~ start
+BOSS: WHAT THE HELL IS UP WITH YOUR PERFORMANCE THIS MONTH??!?!?!
+BOSS: THE CLIENT SAID THAT IF WE DON'T PICK UP THE PACE WE WILL NOT GET PAID!!
+BOSS: IM CUTTING YOUR PAY BY HALF IF I DONT SEE THE RESULTS I EXPECT FROM YOU!!
+- That's very unreasonable sir, im already working twice the hours im supposed to...
+	BOSS: UNREASONABLE?! YOU'RE PROBABLY SLEEPING ON YOUR DESK TO BOOST UP YOUR HOW MUCH TIME YOU FOR SURE SPENT WORKING!
+	- The deadlines have gotten way too strict. We're already going as fast as we can
+			BOSS: EXCUSES! EXCUSES! EXCUSES! EVERYTHING IS JUST EXCUSES. IF I WAS IN YOUR POSITION I WOULD BE DOING THIS AT LEAST 9 TIMES FASTER!!
+			- Sir we need to get more employees, every single one of us is overworked.
+				BOSS: YOU THINK I CAN JUST SUMMON WORKERS LIKE A MAGICIAN?? YOU HAVE GOT TO BE KIDDING ME
+	- Sir we need to get more employees, every single one of us is overworked.
+		BOSS: YOU THINK I CAN JUST SUMMON WORKERS LIKE A MAGICIAN?? YOU HAVE GOT TO BE KIDDING ME
+		- The deadlines have gotten way too strict. We're already going as fast as we can
+			BOSS: EXCUSES! EXCUSES! EXCUSES! EVERYTHING IS JUST EXCUSES. IF I WAS IN YOUR POSITION I WOULD BE DOING THIS AT LEAST 9 TIMES FASTER!!
+
+- Sir we need to get more employees, every single one of us is overworked.
+	BOSS: YOU THINK I CAN JUST SUMMON WORKERS LIKE A MAGICIAN?? YOU HAVE GOT TO BE KIDDING ME
+	- That's very unreasonable sir, im already working twice the hours im supposed to...
+		BOSS: UNREASONABLE?! YOU'RE PROBABLY SLEEPING ON YOUR DESK TO BOOST UP YOUR HOW MUCH TIME YOU FOR SURE SPENT WORKING!
+		The deadlines have gotten way too strict. We're already going as fast as we can
+			BOSS: EXCUSES! EXCUSES! EXCUSES! EVERYTHING IS JUST EXCUSES. IF I WAS IN YOUR POSITION I WOULD BE DOING THIS AT LEAST 9 TIMES FASTER!!
+	- The deadlines have gotten way too strict. We're already going as fast as we can
+		BOSS: EXCUSES! EXCUSES! EXCUSES! EVERYTHING IS JUST EXCUSES. IF I WAS IN YOUR POSITION I WOULD BE DOING THIS AT LEAST 9 TIMES FASTER!!
+		- That's very unreasonable sir, im already working twice the hours im supposed to...
+			BOSS: UNREASONABLE?! YOU'RE PROBABLY SLEEPING ON YOUR DESK TO BOOST UP YOUR HOW MUCH TIME YOU FOR SURE SPENT WORKING!
+		
+- The deadlines have gotten way too strict. We're already going as fast as we can
+	BOSS: EXCUSES! EXCUSES! EXCUSES! EVERYTHING IS JUST EXCUSES. IF I WAS IN YOUR POSITION I WOULD BE DOING THIS AT LEAST 9 TIMES FASTER!!
+	- Sir we need to get more employees, every single one of us is overworked.
+		BOSS: YOU THINK I CAN JUST SUMMON WORKERS LIKE A MAGICIAN?? YOU HAVE GOT TO BE KIDDING ME
+		- That's very unreasonable sir, im already working twice the hours im supposed to...
+			BOSS: UNREASONABLE?! YOU'RE PROBABLY SLEEPING ON YOUR DESK TO BOOST UP YOUR HOW MUCH TIME YOU FOR SURE SPENT WORKING!
+	- That's very unreasonable sir, im already working twice the hours im supposed to...
+			BOSS: UNREASONABLE?! YOU'RE PROBABLY SLEEPING ON YOUR DESK TO BOOST UP YOUR HOW MUCH TIME YOU FOR SURE SPENT WORKING!
+			- Sir we need to get more employees, every single one of us is overworked.
+				BOSS: YOU THINK I CAN JUST SUMMON WORKERS LIKE A MAGICIAN?? YOU HAVE GOT TO BE KIDDING ME
+
+do camera_zoom()
+
+=> END

@@ -1,18 +1,19 @@
-[gd_scene load_steps=9 format=4 uid="uid://cfhvlmxeabk8i"]
+[gd_scene load_steps=10 format=4 uid="uid://ova5ui17iuoh"]
 
-[ext_resource type="PackedScene" uid="uid://btdsg11tmwjld" path="res://scenes/player.tscn" id="1_qlfqr"]
-[ext_resource type="Shader" path="res://shaders/wobbly.gdshader" id="2_7whh6"]
-[ext_resource type="Texture2D" uid="uid://bkvsohd80v3j0" path="res://art/files/bg_tile.png" id="3_mxsoe"]
-[ext_resource type="PackedScene" path="res://scenes/boss_monster.tscn" id="4_iqva6"]
+[ext_resource type="PackedScene" uid="uid://btdsg11tmwjld" path="res://scenes/player.tscn" id="1_8ag7v"]
+[ext_resource type="Shader" path="res://shaders/wobbly.gdshader" id="2_3hm1u"]
+[ext_resource type="Texture2D" uid="uid://bkvsohd80v3j0" path="res://art/files/bg_tile.png" id="3_x5l31"]
+[ext_resource type="PackedScene" uid="uid://c2wqdwcuaenmn" path="res://scenes/wyfe.tscn" id="4_1b1ay"]
+[ext_resource type="PackedScene" uid="uid://c2gxkfx88oon2" path="res://scenes/scythe.tscn" id="5_3y1tj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_svkpb"]
-shader = ExtResource("2_7whh6")
+shader = ExtResource("2_3hm1u")
 shader_parameter/normal_offset = 1.5
 shader_parameter/time_influence = 3.0
 shader_parameter/y_div = 2.87
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v7nb0"]
-texture = ExtResource("3_mxsoe")
+texture = ExtResource("3_x5l31")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -36,9 +37,9 @@ sources/0 = SubResource("TileSetAtlasSource_v7nb0")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1362h"]
 size = Vector2(20, 321)
 
-[node name="Boss_Fight" type="Node2D"]
+[node name="Arena" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_qlfqr")]
+[node name="Player" parent="." instance=ExtResource("1_8ag7v")]
 position = Vector2(16, 5)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -70,5 +71,8 @@ rotation = 1.5708
 scale = Vector2(0.1, 10)
 shape = SubResource("RectangleShape2D_1362h")
 
-[node name="Boss Monster" parent="." instance=ExtResource("4_iqva6")]
-position = Vector2(3, -60)
+[node name="Wyfe" parent="." instance=ExtResource("4_1b1ay")]
+position = Vector2(6, -87)
+
+[node name="Sword" parent="." instance=ExtResource("5_3y1tj")]
+position = Vector2(72, -73)

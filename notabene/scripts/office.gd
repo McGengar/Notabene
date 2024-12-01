@@ -21,8 +21,18 @@ func _physics_process(delta):
 func _on_timer_timeout():
 	time+=1
 
+func camera_zoom():
+	if 	$Node2D/Player/Camera2D.zoom.x<7:
+			$Node2D/Player/Camera2D.zoom.x*=1.0007
+			$Node2D/Player/Camera2D.zoom.y*=1.0007
+	else:
+		$Node2D/Player/Camera2D/Sprite2D2.modulate = Color(0,0,0,255)
+	await get_tree().create_timer(1).timeout
+	get_tree().change_scene_to_packed(load("res://scenes/boss_fight.tscn"))
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
 		$Node2D/Player.can_move =false
 		$Node2D/Player/AnimatedSprite2D.animation = "stand"
+		DialogueManager.show_dialogue_balloon(load("res://dialogue/dialogue.dialogue"), "start")
+		

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://4ko0m1ntrrlv"
+path="res://.godot/imported/wifedialogue.dialogue-b53cbca9c7e2b6c958561a972526eab3.tres"
+
+[deps]
+
+source_file="res://dialogue/wifedialogue.dialogue"
+dest_files=["res://.godot/imported/wifedialogue.dialogue-b53cbca9c7e2b6c958561a972526eab3.tres"]
+
+[params]
+
+defaults=true
