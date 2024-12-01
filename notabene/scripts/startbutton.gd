@@ -16,5 +16,5 @@ func _on_pressed() -> void:
 
 
 func _on_texture_button_2_pressed() -> void:
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(0.5).timeout
 	get_tree().quit()
