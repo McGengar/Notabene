@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://c6xtn86sydiqe"]
+[gd_scene load_steps=14 format=3 uid="uid://c6xtn86sydiqe"]
 
 [ext_resource type="Script" path="res://scripts/dziecko.gd" id="1_qayje"]
 [ext_resource type="PackedScene" uid="uid://crdf8l88vsvxv" path="res://scenes/bullet.tscn" id="2_qqssr"]
 [ext_resource type="Texture2D" uid="uid://knws10ori4ek" path="res://art/files/baby_sprite.png" id="2_yfyph"]
 [ext_resource type="Shader" path="res://shaders/outline.gdshader" id="3_lhr12"]
+[ext_resource type="AudioStream" uid="uid://kbk5kem42k6r" path="res://sounds/440516__klankbeeld__baby-cry-short-005-170829_1221.wav" id="5_bbmn8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_toamk"]
 shader = ExtResource("3_lhr12")
@@ -93,5 +94,8 @@ initial_velocity_min = 90.91
 initial_velocity_max = 202.02
 scale_amount_max = 3.0
 scale_amount_curve = SubResource("Curve_8f8ld")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_bbmn8")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
