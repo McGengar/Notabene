@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cslp4apdhbs4v"]
+[gd_scene load_steps=40 format=3 uid="uid://i7s86caconpg"]
 
 [ext_resource type="Script" path="res://scripts/homeafter.gd" id="1_xb7q7"]
 [ext_resource type="Texture2D" uid="uid://b0h81ec4majjk" path="res://art/files/home.png" id="2_i2gox"]
@@ -242,8 +242,8 @@ limit_bottom = 162
 [node name="Sprite2D" type="Sprite2D" parent="Player/Camera2D"]
 z_index = 5
 material = SubResource("ShaderMaterial_1ayg1")
-position = Vector2(-2.50001, -1)
-scale = Vector2(327, 194)
+position = Vector2(-2.50001, 29)
+scale = Vector2(327, 374)
 texture = SubResource("GradientTexture1D_23vr0")
 
 [node name="pivot" type="Node2D" parent="Player"]

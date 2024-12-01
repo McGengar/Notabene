@@ -187,7 +187,7 @@ z_index = 1
 position = Vector2(6, -87)
 
 [node name="Sword" parent="." instance=ExtResource("5_3y1tj")]
-position = Vector2(72, -109.365)
+position = Vector2(98.195, -152.765)
 movement_speed = 25
 
 [node name="Player" type="RigidBody2D" parent="." groups=["player"]]
