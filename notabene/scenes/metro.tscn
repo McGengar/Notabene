@@ -266,6 +266,5 @@ autoplay = true
 stream = ExtResource("9_xl0v3")
 volume_db = -1.609
 autoplay = true
-stream_paused = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
