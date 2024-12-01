@@ -115,16 +115,16 @@ shader_parameter/roll_speed = 3.8e-07
 shader_parameter/scan_line_strength = -1.0
 shader_parameter/pixel_strength = 0.0
 
-[sub_resource type="Gradient" id="Gradient_eih80"]
+[sub_resource type="Gradient" id="Gradient_3atuv"]
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_yu7ns"]
-gradient = SubResource("Gradient_eih80")
+gradient = SubResource("Gradient_3atuv")
 
-[sub_resource type="Gradient" id="Gradient_k64nx"]
+[sub_resource type="Gradient" id="Gradient_bgooe"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_bsl6a"]
-gradient = SubResource("Gradient_k64nx")
+gradient = SubResource("Gradient_bgooe")
 
 [node name="metronight" type="Node2D"]
 script = ExtResource("1_gwqsw")

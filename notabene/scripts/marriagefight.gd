@@ -15,16 +15,16 @@ func _on_dziecko_die():
 	counter+=1
 	if counter ==3:
 		await get_tree().create_timer(2).timeout
-		get_tree().change_scene_to_packed(load("res://scenes/metro.tscn"))
+		get_tree().change_scene_to_packed(load("res://scenes/metronightafter.tscn"))
 
 func _on_tentacle_monster_die():
 	counter+=1
 	if counter ==3:
 		await get_tree().create_timer(2).timeout
-		get_tree().change_scene_to_packed(load("res://scenes/metro.tscn"))
+		get_tree().change_scene_to_packed(load("res://scenes/metronightafter.tscn"))
 
 func _on_bulky_die():
 	counter+=1
 	if counter ==3:
 		await get_tree().create_timer(2).timeout
-		get_tree().change_scene_to_packed(load("res://scenes/metro.tscn"))
+		get_tree().change_scene_to_packed(load("res://scenes/metronightafter.tscn"))

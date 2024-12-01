@@ -1,0 +1,121 @@
+[gd_scene load_steps=16 format=3 uid="uid://8uoutx1perjw"]
+
+[ext_resource type="Script" path="res://scripts/cityafter.gd" id="1_ie434"]
+[ext_resource type="Texture2D" uid="uid://blelw68kl7yja" path="res://art/files/city.png" id="1_owhpv"]
+[ext_resource type="Shader" path="res://shaders/camera.gdshader" id="2_4oa43"]
+[ext_resource type="Shader" path="res://shaders/outline.gdshader" id="3_dcgps"]
+[ext_resource type="Texture2D" uid="uid://duvylkbvl0ifg" path="res://art/files/player_spirte_sheet.png" id="4_dl6cu"]
+[ext_resource type="Texture2D" uid="uid://ducjhopqrtp7j" path="res://art/files/black.png" id="6_vm50k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4u015"]
+size = Vector2(85, 75)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fqocg"]
+shader = ExtResource("2_4oa43")
+shader_parameter/resolution = Vector2(480, 480)
+shader_parameter/scan_line_amount = 0.022
+shader_parameter/warp_amount = 0.0
+shader_parameter/noise_amount = 0.023
+shader_parameter/interference_amount = 0.112
+shader_parameter/grille_amount = 0.191
+shader_parameter/grille_size = 1.0
+shader_parameter/vignette_amount = 1.146
+shader_parameter/vignette_intensity = 0.456
+shader_parameter/aberation_amount = 0.815
+shader_parameter/roll_line_amount = 0.3
+shader_parameter/roll_speed = 3.8e-07
+shader_parameter/scan_line_strength = -1.0
+shader_parameter/pixel_strength = 0.0
+
+[sub_resource type="Gradient" id="Gradient_bm1vi"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0test"]
+gradient = SubResource("Gradient_bm1vi")
+
+[sub_resource type="Gradient" id="Gradient_uexmg"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_o70nh"]
+gradient = SubResource("Gradient_uexmg")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ted5m"]
+shader = ExtResource("3_dcgps")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0w7v"]
+atlas = ExtResource("4_dl6cu")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jwxmo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0w7v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="cityafter" type="Node2D"]
+script = ExtResource("1_ie434")
+
+[node name="background" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="background"]
+position = Vector2(144, 81)
+texture = ExtResource("1_owhpv")
+
+[node name="Sprite2D2" type="Sprite2D" parent="background"]
+position = Vector2(432, 81)
+texture = ExtResource("1_owhpv")
+
+[node name="Sprite2D3" type="Sprite2D" parent="background"]
+position = Vector2(720, 81)
+texture = ExtResource("1_owhpv")
+
+[node name="Sprite2D4" type="Sprite2D" parent="background"]
+position = Vector2(1008, 81)
+texture = ExtResource("1_owhpv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(962, 74)
+shape = SubResource("RectangleShape2D_4u015")
+
+[node name="Camera2D" type="Camera2D" parent="CollisionShape2D"]
+zoom = Vector2(4, 4)
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D/Camera2D"]
+z_index = 5
+material = SubResource("ShaderMaterial_fqocg")
+position = Vector2(-2.50001, -1)
+scale = Vector2(327, 194)
+texture = SubResource("GradientTexture1D_0test")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CollisionShape2D/Camera2D"]
+visible = false
+z_index = 1
+position = Vector2(2.99999, -5)
+scale = Vector2(1.46484, 191)
+texture = SubResource("GradientTexture1D_o70nh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+material = SubResource("ShaderMaterial_ted5m")
+position = Vector2(0, -1)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_jwxmo")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1027, 46)
+texture = ExtResource("6_vm50k")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
