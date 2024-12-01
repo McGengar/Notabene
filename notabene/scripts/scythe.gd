@@ -4,6 +4,7 @@ extends RigidBody2D
 @export var hp = 100
 var direction : Vector2
 var is_dashing = false
+@onready var stab: AudioStreamPlayer = $stab
 
 @onready var player = get_node("../Player")
 
@@ -21,6 +22,7 @@ func _physics_process(delta):
 
 func _on_area_2d_body_entered(body: RigidBody2D) -> void:
 	if body.is_in_group("player"):
+		stab.play()
 		body.take_dmg(20)
 		direction= Vector2.ZERO
 		if player != null:

@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://c2gxkfx88oon2"]
+[gd_scene load_steps=9 format=3 uid="uid://c2gxkfx88oon2"]
 
 [ext_resource type="Script" path="res://scripts/scythe.gd" id="1_1mdg0"]
 [ext_resource type="Shader" path="res://shaders/outline.gdshader" id="2_q8eem"]
 [ext_resource type="Texture2D" uid="uid://buj400oh4ue6y" path="res://art/files/scythe.png" id="2_twtfl"]
+[ext_resource type="AudioStream" uid="uid://c07g6xttvxekw" path="res://sounds/718259__georgediamond__sword-stab-body-hit.wav" id="4_cl8bj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rk5or"]
 shader = ExtResource("2_q8eem")
@@ -53,5 +54,8 @@ disabled = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(42.3333, -1.33333)
 shape = SubResource("RectangleShape2D_cmk4b")
+
+[node name="stab" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_cl8bj")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

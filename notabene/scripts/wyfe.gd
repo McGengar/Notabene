@@ -6,6 +6,7 @@ var is_attacking = false
 var direction : Vector2
 @export var wyfebullet: PackedScene
 @onready var player = get_node("../Player")
+@onready var attack: AudioStreamPlayer = $attack
 
 signal die
 
@@ -40,6 +41,7 @@ func _on_timer_timeout() -> void:
 	is_attacking = true
 	$AnimatedSprite2D.animation = "spell"
 	await get_tree().create_timer(1.0).timeout
+	attack.play()
 	if hp>0:
 		var bullet_dir : PackedVector2Array = [Vector2(0,1), Vector2(0,-1), Vector2(1,0), Vector2(-1,0), Vector2(1,1), Vector2(-1,-1), Vector2(-1,1), Vector2(1,-1)]
 		if global_position.distance_to(player.global_position)<210:

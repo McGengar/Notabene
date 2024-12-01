@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b6fvo4cmmkpfx"
+path="res://.godot/imported/726494__artninja__rapid_sword_whoosh_w_scrape_sound (mp3cut.net).mp3-971dcea0ad19c1d0526cc22982e6d329.mp3str"
+
+[deps]
+
+source_file="res://sounds/726494__artninja__rapid_sword_whoosh_w_scrape_sound (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/726494__artninja__rapid_sword_whoosh_w_scrape_sound (mp3cut.net).mp3-971dcea0ad19c1d0526cc22982e6d329.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

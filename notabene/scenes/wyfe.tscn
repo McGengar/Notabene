@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://c2wqdwcuaenmn"]
+[gd_scene load_steps=19 format=3 uid="uid://c2wqdwcuaenmn"]
 
 [ext_resource type="Script" path="res://scripts/wyfe.gd" id="1_bxoi3"]
 [ext_resource type="Shader" path="res://shaders/outline.gdshader" id="2_i4fq3"]
 [ext_resource type="Texture2D" uid="uid://dlpb7v3eqkrli" path="res://art/files/wyfe_sprite_sheet.png" id="2_n0lsw"]
 [ext_resource type="PackedScene" uid="uid://bik34nwdtnwdi" path="res://scenes/wyfebullet.tscn" id="2_nm4a5"]
 [ext_resource type="Texture2D" uid="uid://gqmaly4ef3nh" path="res://art/files/wyfe.png" id="2_obkm3"]
+[ext_resource type="AudioStream" uid="uid://b6fvo4cmmkpfx" path="res://sounds/726494__artninja__rapid_sword_whoosh_w_scrape_sound (mp3cut.net).mp3" id="6_71clw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d4oac"]
 shader = ExtResource("2_i4fq3")
@@ -126,5 +127,8 @@ initial_velocity_min = 90.91
 initial_velocity_max = 202.02
 scale_amount_max = 3.0
 scale_amount_curve = SubResource("Curve_8ir23")
+
+[node name="attack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_71clw")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
