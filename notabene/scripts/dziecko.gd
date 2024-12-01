@@ -9,6 +9,7 @@ var is_attacking = false
 
 func dealt_dmg(amount):
 	hp-=amount
+	$CPUParticles2D.emitting= true
 	if hp<=0:
 		$AnimatedSprite2D.visible=false
 		collision_layer = 0

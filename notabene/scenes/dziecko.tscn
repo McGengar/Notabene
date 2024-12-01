@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c6xtn86sydiqe"]
+[gd_scene load_steps=13 format=3 uid="uid://c6xtn86sydiqe"]
 
 [ext_resource type="Script" path="res://scripts/dziecko.gd" id="1_qayje"]
 [ext_resource type="PackedScene" path="res://scenes/bullet.tscn" id="2_qqssr"]
@@ -57,6 +57,10 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_oar3c"]
 radius = 18.1108
 
+[sub_resource type="Curve" id="Curve_8f8ld"]
+_data = [Vector2(0.0168539, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="DZIECKO" type="RigidBody2D" groups=["enemy"]]
 gravity_scale = 0.0
 lock_rotation = true
@@ -76,5 +80,18 @@ shape = SubResource("CircleShape2D_oar3c")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 100
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 50)
+initial_velocity_min = 90.91
+initial_velocity_max = 202.02
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_8f8ld")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

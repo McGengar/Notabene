@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c2wqdwcuaenmn"]
+[gd_scene load_steps=18 format=3 uid="uid://c2wqdwcuaenmn"]
 
 [ext_resource type="Script" path="res://scripts/wyfe.gd" id="1_bxoi3"]
 [ext_resource type="Shader" path="res://shaders/outline.gdshader" id="2_i4fq3"]
@@ -86,6 +86,10 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_3yk0k"]
 radius = 22.8035
 
+[sub_resource type="Curve" id="Curve_8ir23"]
+_data = [Vector2(0.0168539, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="Wyfe" type="RigidBody2D" groups=["enemy"]]
 gravity_scale = 0.0
 lock_rotation = true
@@ -107,7 +111,20 @@ frame_progress = 0.972582
 shape = SubResource("CircleShape2D_3yk0k")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 6.0
+wait_time = 5.0
 autostart = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 100
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 50)
+initial_velocity_min = 90.91
+initial_velocity_max = 202.02
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_8ir23")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

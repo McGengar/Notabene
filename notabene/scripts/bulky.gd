@@ -9,6 +9,7 @@ var is_attacking = false
 
 func dealt_dmg(amount):
 	hp-=amount
+	$CPUParticles2D.emitting= true
 	if hp<=0:
 		collision_layer = 0
 		collision_mask = 0

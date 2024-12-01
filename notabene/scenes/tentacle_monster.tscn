@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://by4k4n4ccw5v2"]
+[gd_scene load_steps=22 format=3 uid="uid://by4k4n4ccw5v2"]
 
 [ext_resource type="Script" path="res://scripts/tentacle_monster.gd" id="1_4urep"]
 [ext_resource type="Shader" path="res://shaders/outline.gdshader" id="2_6oxeu"]
@@ -118,6 +118,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vdwpx"]
 size = Vector2(64, 20)
 
+[sub_resource type="Curve" id="Curve_f1kjb"]
+_data = [Vector2(0.0168539, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="Tentacle Monster" type="RigidBody2D" groups=["enemy"]]
 gravity_scale = 0.0
 lock_rotation = true
@@ -154,6 +158,19 @@ sprite_frames = SubResource("SpriteFrames_85s74")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pivot/AreaAtak"]
 position = Vector2(32, 0)
 shape = SubResource("RectangleShape2D_vdwpx")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 100
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 50)
+initial_velocity_min = 90.91
+initial_velocity_max = 202.02
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_f1kjb")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="pivot/AreaAtak" to="." method="_on_area_atak_body_entered"]
