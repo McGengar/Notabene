@@ -6,6 +6,7 @@ var direction : Vector2
 var is_attacking = false
 signal die
 @onready var player = get_node("../Player")
+var has_left = false
 
 func dealt_dmg(amount):
 	hp-=amount
@@ -43,9 +44,21 @@ func attack():
 	is_attacking = false
 func _on_area_2d_body_entered(body: RigidBody2D) -> void:
 	if body.is_in_group("player"):
+		has_left = false
 		attack()
+		while has_left == false:
+			await get_tree().create_timer(1).timeout
+			if has_left == true:
+				break
+			else:
+				await get_tree().create_timer(1).timeout
+				attack()
 
 
 func _on_shockwave_body_entered(body):
 	if body.is_in_group("player"):
-		body.take_dmg(50)
+		body.take_dmg(65)
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	has_left = true

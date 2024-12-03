@@ -5,7 +5,7 @@ extends RigidBody2D
 var direction : Vector2
 @export var time = 0
 @export var bullet: PackedScene
-
+var has_left = false
 @onready var player = get_node("../Player")
 
 signal die
@@ -62,4 +62,15 @@ func _on_timer_timeout():
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
+		has_left = false
 		body.take_dmg(25)
+		while has_left == false:
+			await get_tree().create_timer(1).timeout
+			if has_left == true:
+				break
+			else:
+				body.take_dmg(25)
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	has_left = true

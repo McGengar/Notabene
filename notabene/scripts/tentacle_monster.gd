@@ -9,8 +9,10 @@ var direction : Vector2
 var is_attacking = false
 @onready var atak_area: Area2D = $pivot/AreaAtak
 @onready var pivot: Node2D = $pivot
-
+var has_left = false
+var invincible = false
 signal die
+@onready var klang: AudioStreamPlayer = $klang
 
 func _ready() -> void:
 	atak_area.monitoring = false
@@ -19,7 +21,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	time+= delta
 func dealt_dmg(amount):
-	hp-=amount
+	if invincible == false:
+		hp-=amount
+	else:
+		klang.play()
 	$CPUParticles2D.emitting= true
 	if hp<=0:
 		emit_signal("die")
@@ -42,22 +47,30 @@ func _physics_process(delta):
 func attack():
 	is_attacking = true
 	$AnimatedSprite2D.stop()
+	invincible = true
 	$AnimatedSprite2D.animation="attack"
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.4).timeout
+	invincible = false
 	$AudioStreamPlayer2D.play()
 	atak_area.monitoring = true
 	pivot.visible = true
 	$pivot/AnimatedSprite2D.frame = 0
 	$pivot/AnimatedSprite2D.play()
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.2).timeout
 	atak_area.monitoring = false
 	pivot.visible = false
 	is_attacking = false
 
 func _on_area_2d_body_entered(body: RigidBody2D) -> void:
 	if body.is_in_group("player"):
+		has_left = false
 		attack()
-		
+		while has_left == false:
+			await get_tree().create_timer(1).timeout
+			if has_left == true:
+				break
+			else:
+				attack()
 		
 
 
@@ -65,3 +78,7 @@ func _on_area_atak_body_entered(body: RigidBody2D) -> void:
 	if body.is_in_group("player"):
 		body.take_dmg(25)
 		player.camera_shake(9)
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	has_left = true

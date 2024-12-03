@@ -79,7 +79,7 @@ frame_progress = 0.161695
 shape = SubResource("CircleShape2D_oar3c")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.0
 autostart = true
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]

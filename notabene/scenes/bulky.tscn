@@ -149,4 +149,5 @@ scale_amount_curve = SubResource("Curve_tntsj")
 stream = ExtResource("5_ty431")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="shockwave" to="." method="_on_shockwave_body_entered"]
