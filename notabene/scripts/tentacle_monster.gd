@@ -13,6 +13,8 @@ var has_left = false
 var invincible = false
 signal die
 @onready var klang: AudioStreamPlayer = $klang
+@export var bullet: PackedScene
+var damage = 30
 
 func _ready() -> void:
 	atak_area.monitoring = false
@@ -66,7 +68,7 @@ func _on_area_2d_body_entered(body: RigidBody2D) -> void:
 		has_left = false
 		attack()
 		while has_left == false:
-			await get_tree().create_timer(1).timeout
+			await get_tree().create_timer(0.4).timeout
 			if has_left == true:
 				break
 			else:
@@ -76,9 +78,25 @@ func _on_area_2d_body_entered(body: RigidBody2D) -> void:
 
 func _on_area_atak_body_entered(body: RigidBody2D) -> void:
 	if body.is_in_group("player"):
-		body.take_dmg(25)
+		body.take_dmg(30)
 		player.camera_shake(9)
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	has_left = true
+
+
+func _on_timer_2_timeout() -> void:
+	direction= Vector2.ZERO
+	if player != null:
+		direction.x = player.global_position.x -global_position.x 
+		direction.y = player.global_position.y - global_position.y
+		direction = direction.normalized()
+		if hp>0:
+			movement_speed = 10
+			var cry = bullet.instantiate()
+			get_parent().add_child(cry)
+			cry.position = global_position
+			cry.player_direction = direction
+			await get_tree().create_timer(3).timeout
+			movement_speed = 25

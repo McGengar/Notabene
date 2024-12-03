@@ -7,6 +7,7 @@ var is_attacking = false
 signal die
 @onready var player = get_node("../Player")
 var has_left = false
+@onready var collision_body: CollisionShape2D = $CollisionBody
 
 func dealt_dmg(amount):
 	hp-=amount
@@ -19,6 +20,12 @@ func dealt_dmg(amount):
 		queue_free()
 # Called when the node enters the scene tree for the first time.
 func _physics_process(delta):
+	if player.has_been_rooted == true and movement_speed != 30:
+		collision_body.disabled = true
+		movement_speed = 50
+	else:
+		collision_body.disabled = false
+		movement_speed = 15
 	#player = $"../../Player"
 	direction= Vector2.ZERO
 	if player != null:

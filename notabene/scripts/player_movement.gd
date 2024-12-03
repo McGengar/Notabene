@@ -2,6 +2,7 @@ extends RigidBody2D
 
 var character_direction : Vector2
 @export var movement_speed = 10.0
+var normal_ms
 @export var dash_strength = 3000.0
 @export var player_pos : Vector2
 var is_attacking = false
@@ -9,20 +10,39 @@ var is_attacking = false
 @export var can_dash = true
 @export var can_move = true
 @export var hp = 100.0
-
+@onready var tentacls: Sprite2D = $tentacls
+@onready var screamy: Sprite2D = $screamy
+var has_been_rooted = false
 var r_str = 10.0
 var shake_fade = 5.0
 var rng = RandomNumberGenerator.new()
 var shake_str = 0
 
 var last_dir= 1
-
+func _ready():
+	var normal_ms = movement_speed
+	$pivot/AnimatedSprite2D2.visible = false
+	$AnimatedSprite2D.animation = "stand"
+	$pivot/AnimatedSprite2D2.play()
 func camera_shake(str = r_str):
 	shake_str=str
 func random_offset():
 		return Vector2(rng.randf_range(-shake_str,shake_str),rng.randf_range(-shake_str,shake_str))
 
-
+func root(duration):
+	has_been_rooted = true
+	tentacls.visible = true
+	can_move = false
+	can_dash = false
+	await get_tree().create_timer(duration).timeout
+	tentacls.visible = false
+	can_move = true
+	can_dash = true
+	has_been_rooted = false
+func slow(duration,percent):
+	screamy.visible = true
+	await get_tree().create_timer(duration).timeout
+	screamy.visible = false
 func take_dmg(amount):
 	camera_shake(10)
 	
@@ -43,10 +63,7 @@ func take_dmg(amount):
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	$pivot/AnimatedSprite2D2.visible = false
-	$AnimatedSprite2D.animation = "stand"
-	$pivot/AnimatedSprite2D2.play()
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):

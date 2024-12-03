@@ -13,3 +13,4 @@ func _physics_process(delta):
 func _on_area_2d_body_entered(body: RigidBody2D) -> void:
 	if body.is_in_group("player"):
 		body.take_dmg(25)
+		body.slow(3,30)

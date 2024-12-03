@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://djauhd3r7aouy"]
+[gd_scene load_steps=41 format=3 uid="uid://djauhd3r7aouy"]
 
 [ext_resource type="Script" path="res://scripts/marriagefight.gd" id="1_7whit"]
 [ext_resource type="Script" path="res://scripts/player_movement.gd" id="4_4hgy6"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://do3lybgg2ed64" path="res://scenes/arena.tscn" id="11_suecp"]
 [ext_resource type="AudioStream" uid="uid://dbxpt0uh2jjsf" path="res://sounds/swing-whoosh-weapon-1-189819.mp3" id="12_hme4y"]
 [ext_resource type="AudioStream" uid="uid://by8lpgc1vtypc" path="res://sounds/male_hurt7-48124.mp3" id="13_pg88s"]
+[ext_resource type="Texture2D" uid="uid://codv6qcye1vpg" path="res://art/files/rooted.png" id="14_is47k"]
+[ext_resource type="Texture2D" uid="uid://iqh8ikfsh7im" path="res://art/files/screamy.png" id="15_r4xxb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cei84"]
 shader = ExtResource("5_xcire")
@@ -274,6 +276,17 @@ stream = ExtResource("12_hme4y")
 [node name="damaged" type="AudioStreamPlayer2D" parent="Player"]
 stream = ExtResource("13_pg88s")
 volume_db = -7.2
+
+[node name="tentacls" type="Sprite2D" parent="Player"]
+visible = false
+position = Vector2(3, -1)
+scale = Vector2(0.625, 0.640625)
+texture = ExtResource("14_is47k")
+
+[node name="screamy" type="Sprite2D" parent="Player"]
+visible = false
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("15_r4xxb")
 
 [node name="Arena" parent="." instance=ExtResource("11_suecp")]
 position = Vector2(-14, -6)

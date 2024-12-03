@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://blb0hmsrurag5"]
+
+[ext_resource type="Script" path="res://scripts/tentacle.gd" id="1_fi0h3"]
+[ext_resource type="Shader" path="res://shaders/outline.gdshader" id="2_m5xmg"]
+[ext_resource type="Texture2D" uid="uid://b4fir3fjury18" path="res://art/files/tentacle.png" id="3_xctj6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6x2af"]
+shader = ExtResource("2_m5xmg")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bbske"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_xctj6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ratto"]
+radius = 9.0
+height = 54.0
+
+[node name="Tentacle" type="RigidBody2D"]
+gravity_scale = 0.0
+linear_damp = -1.0
+script = ExtResource("1_fi0h3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_6x2af")
+position = Vector2(2, -2)
+sprite_frames = SubResource("SpriteFrames_bbske")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ratto")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

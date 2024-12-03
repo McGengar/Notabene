@@ -43,7 +43,7 @@ func _on_timer_timeout() -> void:
 	if hp>0:
 		$AudioStreamPlayer2D.play()
 		var bullet_dir : PackedVector2Array = [Vector2(0,1), Vector2(0,-1), Vector2(1,0), Vector2(-1,0), Vector2(1,1), Vector2(-1,-1), Vector2(-1,1), Vector2(1,-1)]
-		if global_position.distance_to(player.global_position)<210:
+		if global_position.distance_to(player.global_position)<2100:
 			for n in range(8):
 						var cry = bullet.instantiate()
 						get_parent().add_child(cry)

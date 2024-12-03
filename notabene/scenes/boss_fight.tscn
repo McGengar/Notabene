@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cfhvlmxeabk8i"]
+[gd_scene load_steps=39 format=3 uid="uid://cfhvlmxeabk8i"]
 
 [ext_resource type="Script" path="res://scripts/player_movement.gd" id="1_5yak0"]
 [ext_resource type="Script" path="res://scripts/boss_fight.gd" id="1_n0set"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://6c346jrxj10k" path="res://art/files/slash_sprite_sheet.png" id="7_4w12b"]
 [ext_resource type="AudioStream" uid="uid://dbxpt0uh2jjsf" path="res://sounds/swing-whoosh-weapon-1-189819.mp3" id="9_wmfho"]
 [ext_resource type="AudioStream" uid="uid://by8lpgc1vtypc" path="res://sounds/male_hurt7-48124.mp3" id="10_8wexa"]
+[ext_resource type="Texture2D" uid="uid://codv6qcye1vpg" path="res://art/files/rooted.png" id="11_r35wl"]
+[ext_resource type="Texture2D" uid="uid://iqh8ikfsh7im" path="res://art/files/screamy.png" id="12_ac06v"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1nyfh"]
 shader = ExtResource("2_dujly")
@@ -263,6 +265,17 @@ stream = ExtResource("9_wmfho")
 [node name="damaged" type="AudioStreamPlayer2D" parent="Player"]
 stream = ExtResource("10_8wexa")
 volume_db = -7.2
+
+[node name="tentacls" type="Sprite2D" parent="Player"]
+visible = false
+position = Vector2(3, -1)
+scale = Vector2(0.625, 0.640625)
+texture = ExtResource("11_r35wl")
+
+[node name="screamy" type="Sprite2D" parent="Player"]
+visible = false
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("12_ac06v")
 
 [node name="Boss Monster" parent="." instance=ExtResource("4_iqva6")]
 position = Vector2(3, -60)
